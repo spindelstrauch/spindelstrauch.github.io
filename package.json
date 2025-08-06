@@ -1,0 +1,23 @@
+{
+  "name": "profile-site",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "devh": "astro dev --host",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@fontsource-variable/quicksand": "^5.2.8",
+    "@fontsource/sacramento": "^5.2.6",
+    "@fontsource/zen-maru-gothic": "^5.2.7",
+    "@tailwindcss/vite": "^4.1.11",
+    "astro": "^5.12.3",
+    "astro-relative-links": "^0.4.2",
+    "tailwindcss": "^4.1.11",
+    "typescript": "^5.8.3"
+  }
+}

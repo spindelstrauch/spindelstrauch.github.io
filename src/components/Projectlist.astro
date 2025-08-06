@@ -1,0 +1,17 @@
+---
+const items = Astro.props;
+---
+
+<ul class="project">
+{
+    items.map((entry) => (
+        <li class="project__item">
+            <a href={`/projects/${entry.slug}`}>
+                <div class="project__thumbnail"><img src={entry.data.thumbnail} alt={`$entry.data.title} イメージ`} /></div>
+                <p class="project__category">{entry.data.category}</p>
+                <p class="project__title">{entry.data.title}</p>
+            </a>
+        </li>
+    ));
+}
+</ul>

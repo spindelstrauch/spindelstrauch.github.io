@@ -1,0 +1,299 @@
+---
+const isTop = Astro.url.pathname === '/';
+
+import '../styles/global.css';
+import '@fontsource/zen-maru-gothic/700.css';
+import '@fontsource/sacramento';
+
+function toAnchor(id) {
+    return isTop ? `#${id}` : `/#${id}`;
+}
+---
+
+<script client:load>
+    document.addEventListener("DOMContentLoaded", () => {
+        const header = document.getElementById('header');
+        const button = document.getElementById('menuCtrl');
+        const nav = document.getElementById('nav');
+
+         // ハンバーガーメニュー
+        button?.addEventListener('click', () => {
+            button?.classList.toggle('isActive');
+            nav?.classList.toggle('isActive');
+
+            const current = button.getAttribute('aria-expanded') === 'false';
+            current ? button?.setAttribute('aria-expanded', 'true') : button?.setAttribute('aria-expanded', 'false');
+        });
+
+        // スクロール
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const target = this.getAttribute('href').replace('#', '');
+                const content = document.getElementById(target).getBoundingClientRect().top;
+                const pos = setPos(content);
+
+                window.scrollTo({
+                    top:  pos,
+                    behavior: 'smooth',
+                });
+
+                // メニューを閉じる
+                nav?.classList.toggle('isOpen');
+                button.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        const setPos = (content) => {
+            const headerH = header.offsetHeight;
+            const buffer = 50;
+            const pos = ( content + window.scrollY ) - headerH - buffer;
+            return pos;
+        }
+
+        const hash = window.location.hash;
+        if (hash) {
+            const targetElement = document.querySelector(hash);
+            if (targetElement) {
+                setTimeout(() => {
+                    const targetElementContent = targetElement.getBoundingClientRect().top;
+                    const pos = setPos(targetElementContent);
+                    window.scrollTo({
+                        top: pos,
+                        behavior: 'smooth'
+                    });
+                }, 100);
+            }
+        }
+
+        // ヘッダー処理
+        if (!header) return;
+
+        const init = () => {
+            const url = location.pathname;
+
+            if ( url === '/' ) {
+                header.classList.remove('--lower');
+            } else {
+                header.classList.add('--lower');
+            }
+        };
+
+        init();
+
+        // resize
+        window.addEventListener('resize', init);
+    });
+</script>
+
+
+<header class="header" id="header">
+    <div class="header__logo">
+        {
+            isTop ? (
+                <h1 class="header__text"><span>KOMATA</span> <span>Mayumi</span> <span>Portfolio</span></h1>
+            ) : (
+                <a href="/" class="header__text"><span>KOMATA</span> <span>Mayumi</span> <span>Portfolio</span></a>
+            )
+        }
+    </div>
+    <button type="button" id="menuCtrl" class="header_controlbutton" aria-label="メニューを開く" aria-expanded="false" aria-controls="menu" aria-hidden="false">
+        <span></span>
+    </button>
+    <nav class="header__nav" id="nav" aria-label="メインメニュー">
+        <ul class="header__menu" id="menu">
+            {
+                !isTop && <li><a href="/">トップページ</a></li>
+            }
+            <li><a href={toAnchor("about")}>自己紹介</a></li>
+            <li><a href={toAnchor("skills")}>スキル</a></li>
+            <li><a href={toAnchor("project")}>制作物</a></li>
+        </ul>
+    </nav>
+</header>
+
+<style>
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 10px 20px;
+    z-index: 100;
+}
+
+.header__logo {
+    width: 30vw;
+    height: 30vw;
+    width: clamp(6rem, 5.333rem + 3.33vw, 8rem);
+    height: clamp(6rem, 5.333rem + 3.33vw, 8rem);
+}
+
+.header__text {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #fff;
+    font-size: clamp(1rem, 0.833rem + 0.83vw, 1.5rem);
+    font-family: var(--font-heading);
+    text-align: justify;
+    width: clamp(6rem, 5.333rem + 3.33vw, 8rem);
+    height: clamp(6rem, 5.333rem + 3.33vw, 8rem);
+    background-color: var(--sub-color);
+    border-radius: 5px;
+    box-shadow: 0 4px 0 rgba(75,99,120,18%);
+}
+
+a.header__text:hover {
+    background-color: var(--sub-color2);
+}
+
+.header__text span {
+    font-weight: 700;
+}
+
+.header__text span:nth-child(3) {
+    font-weight: 300;
+}
+
+.header__nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    background-color: #fff;
+    box-shadow: -4px 0 0 rgba(75,99,120,18%);
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+    z-index: 100;
+}
+
+.header__nav.isActive {
+    pointer-events: auto;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.header__nav.isOpen {
+   opacity: 1;
+   visibility: visible;
+}
+
+.header__menu {
+    margin: 20vh 10vw 0;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    gap: 1rem 2rem;
+    font-weight: bold;
+    font-family: var(--font-heading);
+}
+
+.header__menu a {
+    position: relative;
+}
+
+.header__menu a:hover {
+    color: var(--sub-color);
+}
+
+.header_controlbutton {
+    display: grid;
+    place-content: center;
+    position: absolute;
+    right: 20px;
+    top: 50px;
+    cursor: pointer;
+    z-index: 101;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+
+    &::before,
+    &::after,
+    > span {
+        display: block;
+        width: 30px;
+        height: 4px;
+        background-color: var(--sub-color);
+        border-radius: 50em;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    &::before,
+    &::after {
+        content: "";
+        will-change: rotate, margin;
+        transition: rotate 0.3s ease-in-out, margin 0.3s ease-in-out;
+    }
+
+    &::before {
+        margin-bottom: 6px;
+    }
+
+    &::after {
+        margin-top: 6px;
+    }
+
+    &.isActive {
+        &::before {
+        margin-bottom: -4px;
+        rotate: 45deg;
+        }
+
+        &::after {
+        margin-top: -4px;
+        rotate: -45deg;
+        }
+
+        > span {
+        opacity: 0;
+        }
+    }
+}
+
+@media (min-width: 1024px) {
+    .header {
+        display: flex;
+        align-items: stretch;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 30px;
+    }
+
+    .header__menu {
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem 2rem;
+    }
+
+    .header__menuctrl {
+        display: none;
+    }
+
+    .header__nav {
+        position: relative;
+        height: unset;
+        padding: 1rem 2rem;
+        opacity: 1;
+        transform: none;
+        transition: none;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 50em;
+        pointer-events: all;
+        box-shadow: 0 4px 0 rgba(75,99,120,18%);
+    }
+
+    .header__menu {
+        margin: 0;
+    }
+
+    .header_controlbutton {
+        display: none;
+    }
+}
+</style>

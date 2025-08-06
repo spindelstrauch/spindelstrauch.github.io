@@ -1,0 +1,267 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import HeaderContent from "../components/HeaderContent.astro";
+
+import '@fontsource/zen-maru-gothic/400.css';
+import '@fontsource-variable/quicksand';
+
+const { entrydata } = Astro.props;
+
+/**
+ * URLチェック
+ * @param {string} str  判定する文字列
+ * @return {boolean} 有効なURLであればtrue、そうでなければfalseを返す
+ */
+const url = entrydata.url;
+function isValidUrl (str: string):boolean {
+    try {
+        new URL(str);
+        return true;
+    } catch {
+        return false;
+    }
+}
+
+const title = entrydata.title;
+const tools = entrydata.tools;
+const category = entrydata.category;
+const images = entrydata.images;
+const role = entrydata.role;
+const stylesheets = entrydata.stylesheets;
+const jsfiles = entrydata.jsfiles;
+---
+
+<html lang="ja">
+    <head>
+        <HeaderContent title={title} />
+        {Array.isArray(stylesheets) && stylesheets.length > 0 && (
+            stylesheets.map((href) => (
+                <link rel="stylesheet" href={href} key={href} />
+            ))
+        )}
+    </head>
+    <body>
+        <Header />
+        <main class="mainContents" id="mainContents">
+            <div class="p-project">
+                <div class="p-project__image"><img src={entrydata.thumbnail} alt=""></div>
+                <header class="p-project-header">
+                    <ul class="p-project__category c-tags">
+                        {
+                            category.map((cat) =>
+                                <li>{cat}</li>
+                            )
+                        }
+                    </ul>
+                    <h1 class="p-project__title">{title}</h1>
+                </header>
+                {
+                     images && (
+                        <div class=`mt-20 ${entrydata.imageslayout}`>
+                            {
+                                images.map((item) => (
+                                    <div><img src={item} alt=`${title}イメージ` /></div>
+                                ))
+                            }
+                        </div>
+                     )
+                }
+                <dl class="p-project__summary">
+                    {
+                        url && (
+                            <div>
+                                <dt>URL</dt>
+                                {
+                                    typeof url === 'string' && isValidUrl(url) ? (
+                                    <dd><a href={url} target="_blank" rel="noopener noreferrer">{url}</a></dd>
+                                    ) : (
+                                        <dd>{url}</dd>
+                                    )
+                                }
+                            </div>
+                        )
+                    }
+                    {
+                        role && (
+                            <div>
+                            <dt>担当フェーズ</dt>
+                            <dd>
+                                <ul>
+                                {
+                                    role.map((tool) =>
+                                        <li>{tool}</li>
+                                    )
+                                }
+                                </ul>
+                            </dd>
+                            </div>
+                        )
+
+                    }
+                    {
+                        tools && tools?.length > 0 && (
+                            <div>
+                                <dt>使用ツール</dt>
+                                <dd>
+                                    <ul class="pl-5 list-disc">
+                                    {
+                                        tools.map((tool) =>
+                                            <li>{tool}</li>
+                                        )
+                                    }
+                                    </ul>
+                                </dd>
+                            </div>
+                        )
+                    }
+                </dl>
+                <div class="p-project__detail">
+                    <slot />
+                </div>
+            </div>
+            <div class="mt-50 mb-20 text-center">
+                <a href="/#project" class="c-button">制作物一覧に戻る</a>
+            </div>
+        </main>
+        <Footer />
+        {Array.isArray(jsfiles) && jsfiles.length > 0 && jsfiles.map(src => (
+            <script src={src} defer></script>
+        ))}
+    </body>
+</html>
+
+<style>
+    .p-project {
+        max-width: var(--content-width);
+        margin-right: auto;
+        margin-left: auto;
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
+
+    @media screen and (min-width: 896px) {
+        .p-project {
+            padding: 0;
+        }
+    }
+
+    .p-project__image {
+        width: 100vw;
+        max-height: 40vh;
+        margin: 0 calc(50% - 50vw);
+        overflow: hidden;
+        aspect-ratio: 16 / 9;
+        background-color: #fff;
+    }
+
+    .p-project__image img {
+        width: 100vw;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.5;
+    }
+
+    .p-project__image + .p-project-header {
+        margin-top: 5rem;
+    }
+
+    .p-project-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .p-project__title {
+		font-size: clamp(1.875rem, 1.739rem + 0.68vw, 2.25rem);
+		font-weight: bold;
+        font-family: var(--font-heading);
+	}
+
+    .p-project__summary {
+        margin-top: 5rem;
+
+        dt {
+            color: var(--sub-color);
+            font-weight: bold;
+        }
+
+        dt + dd {
+            margin-top: 0.2em;
+        }
+
+        div + div {
+            margin-top: 2rem;
+        }
+    }
+
+    .p-project__detail {
+        margin-top: 5rem;
+        padding-top: 5rem;
+        border-top: 1px solid #E6EAEE;
+
+        > h2 {
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 10px;
+            font-size: 1.5rem;
+            font-family: var(--font-heading);
+            font-weight: bold;
+            text-align: center;
+        }
+
+        > h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            display: block;
+            width: 50px;
+            height: 5px;
+            background-color: var(--sub-color2);
+            border-radius: 50rem;
+        }
+
+        * + h2 {
+            margin-top: 7rem;
+        }
+
+        h3 {
+            margin-bottom: 0.5em;
+            font-weight: bold;
+            font-size: 1.125rem;
+        }
+
+        * + h3 {
+            margin-top: 3rem;
+        }
+
+        > p + p {
+            margin-top: 1rem;
+        }
+
+        ul {
+            margin: 2rem 0;
+            list-style: disc;
+            padding-left: 2rem;
+        }
+
+        ul ul {
+            margin: 0.3rem 0 1rem;
+        }
+
+        ul > li + li {
+            margin-top: 0.5rem;
+        }
+
+        ul ul > li + li {
+            margin-top: 0.3em;
+        }
+
+        a {
+            text-decoration: underline;
+        }
+    }
+</style>

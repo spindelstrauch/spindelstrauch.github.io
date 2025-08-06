@@ -1,0 +1,43 @@
+---
+---
+
+<div class="p-mv">
+	<div class="p-mv__image"><img src="/images/mv_main.png" alt=""></div>
+	<div class="p-mv__lead">
+		<h2 class="p-mv__catchCopy">誰かの「困らない」を<br class="u-forSP">そっと支える<br class="u-forPC">仕事を。</h2>
+		<p class="p-mv__leadCopy">誰もが迷わず使えるように。<br>ほんの小さな工夫や調整を積み重ねて、“当たり前”を支えるものづくりをしています。</p>
+	</div>
+</div>
+
+<style>
+	.p-mv {
+		display: flex;
+		align-items: center;
+		justify-content: start;
+		flex-direction: column;
+		padding: 20vh 0 3rem;
+		gap: 3rem;
+	}
+
+	.p-mv__lead {
+		max-width: 64rem;
+		margin-right: auto;
+		margin-left: auto;
+		gap: 32px;
+		padding: 2rem;
+	}
+
+	.p-mv__catchCopy {
+		font-size: clamp(1.5rem, 1.136rem + 1.82vw, 2.5rem);
+		font-family: var(--font-heading);
+		font-weight: bold;
+	}
+
+	.p-mv__leadCopy {
+		margin-top: 2rem;
+	}
+
+	.p-mv__image {
+		flex-shrink: 0;
+	}
+</style>

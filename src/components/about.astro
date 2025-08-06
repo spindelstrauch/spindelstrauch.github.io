@@ -1,0 +1,87 @@
+---
+---
+
+<h2 class="heading" data-subtext="About Me">自己紹介</h2>
+<p class="text-lg font-bold">こまたまゆみ　KOMATA Mayumi</p>
+<p>
+大学卒業後、印刷会社のWeb部門を経て、Web制作会社でマークアップエンジニアとして勤務。現在は情報システム部門に所属しながら、一部でマークアップ業務にも継続して携わっています。
+</p>
+<p>
+私が心がけているのは、<span class="highlight">「誰かにとっての&ldquo;困らない&rdquo;を、そっと支える」</span>こと。
+</p>
+<p>
+Web関連業務に関わる中で、単に「作る」だけではなく、見る人・使う人の立場に立ったものづくりを大切にしてきました。
+</p>
+<p>
+情報を発信したい人、受け取る人、運用していく人——Webサイトにはさまざまな立場の人が関わります。ユーザーにとってわかりやすく、クライアントにとって扱いやすい。そんなWebサイトや仕組みを、地道に、そして丁寧に支えていきたいと考えています。
+</p>
+<ol class="corevalues">
+    <li class="corevalues__item">
+        <div class="corevalues__image"><img src="/images/corevalues01.png" alt=""></div>
+        <p class="corevalues__heading">ユーザーと運用の両面に配慮した<br>設計・実装</p>
+        <p class="corevalues__text">
+            視認性・理解しやすさに加え、運用者にとっても管理・更新しやすい構造を設計。アクセシビリティや保守性も重視した柔軟な実装を心がけています。
+        </p>
+    </li>
+    <li class="corevalues__item">
+        <div class="corevalues__image"><img src="/images/corevalues02.png" alt=""></div>
+        <p class="corevalues__heading">実装から運用までの一貫対応</p>
+        <p class="corevalues__text">
+            HTML/CSS/JavaScriptによる実装に加え、要件定義・ワイヤーフレーム作成・サーバー選定・制作進行管理など、一連の制作工程を一貫して担当した案件もあります。
+        </p>
+    </li>
+    <li class="corevalues__item">
+        <div class="corevalues__image"><img src="/images/corevalues03.png" alt=""></div>
+        <p class="corevalues__heading">クライアント・社内向け<br>ドキュメント作成業務</p>
+        <p class="corevalues__text">
+            クライアント向けの更新マニュアルや、社内向けのコーディングガイドの作成など、ナレッジ共有やドキュメント整備も行います。
+        </p>
+    </li>
+</ol>
+
+<style>
+    .corevalues {
+		display: grid;
+		gap: 1.25rem;
+		margin-top: 3.75rem;
+	}
+
+	.corevalues__item {
+		display: grid;
+		grid-gap: 1rem;
+		background-color: #fff;
+		border-radius: 10px;
+	}
+
+	.corevalues__image {
+		display: flex;
+		justify-content: center;
+		border-radius: 10px 10px 0 0;
+		background-color: var(--sub-color);
+	}
+
+	.corevalues__heading {
+		font-weight: bold;
+		text-align: center;
+		padding: 0 1rem;
+	}
+
+	.corevalues__text {
+		padding: 0 1rem 1rem;
+	}
+
+	@media (min-width: 768px) {
+		.corevalues {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+
+		.corevalues__item {
+			display: grid;
+			grid-template-rows: subgrid;
+			grid-row: span 3;
+			grid-gap: 1rem;
+			background-color: #fff;
+			border-radius: 10px;
+		}
+	}
+</style>
