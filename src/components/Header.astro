@@ -11,6 +11,17 @@ function toAnchor(id) {
 ---
 
 <script client:load>
+    // ヘッダー位置調整
+    const getHeaderOffset = () => {
+        const baseRem = 16;
+        const winWidth = window.innerWidth;
+        const min = 6 * baseRem;
+        const val = 5.33 * baseRem + (3.33 / 100) * winWidth;
+        const max = 8 * baseRem;
+
+        return Math.min(Math.max(val, min), max) / 2;
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
         const header = document.getElementById('header');
         const button = document.getElementById('menuCtrl');
@@ -47,8 +58,8 @@ function toAnchor(id) {
 
         const setPos = (content) => {
             const headerH = header.offsetHeight;
-            const buffer = 50;
-            const pos = ( content + window.scrollY ) - headerH - buffer;
+            const buffer = getHeaderOffset();
+            const pos = ( content + window.scrollY ) - headerH + buffer;
             return pos;
         }
 
@@ -123,8 +134,6 @@ function toAnchor(id) {
 }
 
 .header__logo {
-    width: 30vw;
-    height: 30vw;
     width: clamp(6rem, 5.333rem + 3.33vw, 8rem);
     height: clamp(6rem, 5.333rem + 3.33vw, 8rem);
 }
