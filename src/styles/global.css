@@ -1,16 +1,18 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
   --main-color: #4b6378;
   --sub-color: #5d96d4;
-  --sub-color2: #80ADEB;
-  --bg-color: #F2F6F8;
+  --sub-color2: #80adeb;
+  --bg-color: #f2f6f8;
   --highlight: #fbbf2480;
 
   --content-width: 56rem; /* 896px */
 
-  --font-base: font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "BIZ UDPGothic", Meiryo, sans-serif;
-  --font-heading: "Quicksand Variable", "Zen Maru Gothic", sans-serif
+  --font-base:
+    font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans',
+    'BIZ UDPGothic', Meiryo, sans-serif;
+  --font-heading: 'Quicksand Variable', 'Zen Maru Gothic', sans-serif;
 }
 
 body {
@@ -97,18 +99,18 @@ img {
 }
 
 .c-tags {
-    display: flex;
-    margin-bottom: 0.5rem;
-    gap: 1rem;
+  display: flex;
+  margin-bottom: 0.5rem;
+  gap: 1rem;
 
-    li {
-        padding: 0 1.5rem;
-        color: #fff;
-        font-size: 0.875rem;
-        font-family: var(--font-heading);
-        background-color: var(--sub-color);
-        border-radius: 5px;
-    }
+  li {
+    padding: 0 1.5rem;
+    color: #fff;
+    font-size: 0.875rem;
+    font-family: var(--font-heading);
+    background-color: var(--sub-color);
+    border-radius: 5px;
+  }
 }
 
 .c-button {
@@ -118,12 +120,17 @@ img {
   background-color: var(--sub-color);
   border-radius: 50em;
   box-shadow: 0 4px 0 rgba(75, 99, 120, 18%);
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .c-button:hover {
   transform: translateY(4px);
   box-shadow: none;
+}
+
+.c-button--white {
+  color: var(--sub-color);
+  background-color: #fff;
 }
 
 .c-topic {

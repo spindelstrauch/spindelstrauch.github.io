@@ -19,8 +19,8 @@ jsfiles:
 ## 実装例
 
 <div>
-  <h3>自動再生なしのスライド</h3>
-  <div class="p-carousel" role="region" aria-label="バナーエリア" id="carousel-sample01" data-slideautoplay="false">
+  <h3 id="slide-manual">自動再生なしのスライド</h3>
+  <div class="p-carousel" role="region" aria-labelledby="#slide-manual" id="carousel-sample01" data-slideautoplay="false">
     <!-- navigations -->
     <div class="p-carousel__nav">
       <!-- play / pause -->
@@ -156,7 +156,7 @@ jsfiles:
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
               </p>
-              <div class="p-slide4__link"><a href="#">Link Button</a></div>
+              <div class="p-slide4__link"><a href="#" class="c-button c-button--white">Link Button</a></div>
             </div>
             <div class="p-slide4__image"><img src="/images/projects/carousel/image4_l.jpg" alt="" /></div>
           </div>
@@ -167,8 +167,8 @@ jsfiles:
 </div>
 
 <div class="mt-20">
-  <h3>自動再生ありのスライド</h3>
-  <div class="p-carousel" role="region" aria-label="バナーエリア" id="carousel-sample02" data-slideautoplay="true">
+  <h3 id="slide-autoplay">自動再生ありのスライド</h3>
+  <div class="p-carousel" role="region" aria-labelledby="#slide-autoplay" id="carousel-sample02" data-slideautoplay="true">
     <!-- navigations -->
     <div class="p-carousel__nav">
       <!-- play / pause -->
@@ -304,7 +304,7 @@ jsfiles:
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
               </p>
-              <div class="p-slide4__link"><a href="#">Link Button</a></div>
+              <div class="p-slide4__link"><a href="#" class="c-button c-button--white">Link Button</a></div>
             </div>
             <div class="p-slide4__image"><img src="/images/projects/carousel/image4_l.jpg" alt="" /></div>
           </div>
