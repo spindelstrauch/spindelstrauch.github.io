@@ -11,15 +11,16 @@ function toAnchor(id) {
 ---
 
 <script client:load>
-    // ヘッダー位置調整
+    // ページ内リンク時ヘッダースクロール位置調整
     const getHeaderOffset = () => {
         const baseRem = 16;
         const winWidth = window.innerWidth;
         const min = 6 * baseRem;
         const val = 5.33 * baseRem + (3.33 / 100) * winWidth;
         const max = 8 * baseRem;
+        const buffer = winWidth > 768 ? 20 : 10;
 
-        return Math.min(Math.max(val, min), max) / 2;
+        return (Math.min(Math.max(val, min), max) / 2) + buffer;
     }
 
     document.addEventListener("DOMContentLoaded", () => {
