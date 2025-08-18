@@ -11,8 +11,27 @@ import '@fontsource/zen-maru-gothic/400.css';
 import '@fontsource-variable/quicksand';
 
 import { getCollection } from 'astro:content';
-const projectEntries = await getCollection('projects', ({data}) => {
-	return data.draft !== true;
+const projectAllEntries = await getCollection('projects');
+
+// 下書きを除外＆並び順調整
+const publishEntries = projectAllEntries
+.filter(
+	(post) => !post.data.draft
+)
+.sort((a, b) => {
+	if (!a) return 1;
+	if (!b) return -1;
+
+	const orderA = a.data?.order ?? Infinity;
+	const orderB = b.data?.order ?? Infinity;
+
+	// 並び順が設定されているものは並び替える
+	if ( orderA !== Infinity || orderB !== Infinity ) {
+		return orderA - orderB;
+	}
+
+	// 並び順が設定されていないものはスラッグ名で並び替える
+	return a.slug.localeCompare(b.slug);
 });
 ---
 
@@ -93,7 +112,7 @@ const projectEntries = await getCollection('projects', ({data}) => {
 						<h2 class="c-heading" data-subtext="Browse My Recent Projects">制作物</h2>
 						<ul class="p-projectList">
 							{
-								projectEntries.map((projectPostEntry) => (
+								publishEntries.map((projectPostEntry) => (
 									<li class="p-projectList__item">
 										<a href={`/projects/${projectPostEntry.slug}`}>
 											<div class="p-projectList__thumbnail"><img src={projectPostEntry.data.thumbnail} alt="" /></div>
