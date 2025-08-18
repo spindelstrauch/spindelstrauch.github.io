@@ -1,4 +1,5 @@
 ---
+draft: false
 title: '診療日カレンダー'
 category:
   - WordPress

@@ -11,7 +11,9 @@ import '@fontsource/zen-maru-gothic/400.css';
 import '@fontsource-variable/quicksand';
 
 import { getCollection } from 'astro:content';
-const projectEntries = await getCollection('projects');
+const projectEntries = await getCollection('projects', ({data}) => {
+	return data.draft !== true;
+});
 ---
 
 <html lang="ja">
