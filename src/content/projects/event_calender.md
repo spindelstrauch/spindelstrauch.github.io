@@ -1,4 +1,5 @@
 ---
+draft: false
 title: 'イベント情報掲載'
 category:
   - WordPress
