@@ -53,6 +53,24 @@ function parseStrToBoolean(str) {
 }
 
 /**
+ * サムネイルオプション
+ *
+ */
+const setThumbOptions = (SPThumbView, PCThumbView) => ({
+  slidesPerView: SPThumbView,
+  spaceBetween: 6,
+  allowTouchMove: true,
+  mousewheel: true,
+  breakpoints: {
+    768: {
+      slidesPerView: PCThumbView,
+      spaceBetween: 8,
+    },
+  },
+  a11y: { enabled: false },
+});
+
+/**
  * スライド初期設定
  */
 // windowサイズ取得
@@ -86,7 +104,7 @@ slideArea.forEach((el) => {
   // スライドが1枚以上の場合
   if (mainSlideItems > 1) {
     // サムネイル分の高さを設定
-    el.classList.add('p-carousel--has-thumbnail');
+    // el.classList.add('p-carousel--has-thumbnail');
 
     // SP表示では全てのサムネイルを表示
     SPThumbView = mainSlideItems;
@@ -98,35 +116,8 @@ slideArea.forEach((el) => {
       PCThumbView = 4.2;
     }
 
-    // スライドエリアの幅と操作ボタン位置を設定
-    const slideAreaWidth = targetSlide.clientWidth;
-    const allSlideWidth = 200 * mainSlideItems;
-
-    const hoge = Math.round(slideAreaWidth * 100) / winWidth;
-    const thumbAreaWidth = Math.round((allSlideWidth * 100) / winWidth);
-    const setThumbAreawidth = thumbAreaWidth - 10;
-    thumbSlide.style.width = `${setThumbAreawidth}vw`;
-
-    const tuhmbAreaPx = (setThumbAreawidth * winWidth) / 100;
-    const ctrlButtonPos = (slideAreaWidth - tuhmbAreaPx) / 2 - 20;
-    controlButton.style.left = `${ctrlButtonPos}px`;
-
     // サムネイルオプションを設定
-    thumb_options = {
-      slidesPerView: SPThumbView,
-      spaceBetween: 6,
-      allowTouchMove: true,
-      mousewheel: true,
-      breakpoints: {
-        768: {
-          slidesPerView: PCThumbView,
-          spaceBetween: 8,
-        },
-      },
-      a11y: {
-        enabled: false,
-      },
-    };
+    thumb_options = setThumbOptions(SPThumbView, PCThumbView);
 
     /*
      * メインスライド・自動再生の有無による出しわけ
@@ -140,21 +131,7 @@ slideArea.forEach((el) => {
       targetSlide.querySelector('.p-carousel__thumbnailArea').classList.add('autoplay');
 
       // サムネイルオプション
-      thumb_options = {
-        slidesPerView: SPThumbView,
-        spaceBetween: 6,
-        allowTouchMove: true,
-        mousewheel: true,
-        breakpoints: {
-          768: {
-            slidesPerView: PCThumbView,
-            spaceBetween: 8,
-          },
-        },
-        a11y: {
-          enabled: false,
-        },
-      };
+      thumb_options = setThumbOptions(SPThumbView, PCThumbView);
 
       // メインスライドの再生設定
       autoplaySetting = {
@@ -167,21 +144,7 @@ slideArea.forEach((el) => {
       targetSlide.querySelector('.p-carousel__thumbnailArea').classList.remove('autoplay');
 
       // サムネイルオプション
-      thumb_options = {
-        slidesPerView: SPThumbView,
-        spaceBetween: 6,
-        allowTouchMove: true,
-        mousewheel: true,
-        breakpoints: {
-          768: {
-            slidesPerView: PCThumbView,
-            spaceBetween: 8,
-          },
-        },
-        a11y: {
-          enabled: false,
-        },
-      };
+      thumb_options = setThumbOptions(SPThumbView, PCThumbView);
 
       // メインスライドは自動再生しない
       autoplaySetting = false;
@@ -251,23 +214,21 @@ slideArea.forEach((el) => {
         const thumbSlides = thumbnail.slides;
         thumbnailActiveSetting(thumbSlides);
 
-        // メインスライド設定
-        const thumbSlideWrapper = el.querySelector('.p-carousel__thumbnailArea');
-        const thumbSlideHeight = thumbSlideWrapper.clientHeight;
-        const padding = thumbSlideHeight - 29;
+        // サムネイル分の高さを確保
+        const thumbHeight = thumbSlide.parentNode.offsetHeight;
+        el.style.paddingBottom = `${thumbHeight}px`;
 
-        mainSlides.forEach((element) => {
-          // メインスライドでループ表示用に複製したスライドのIDを変更
-          if (element.classList.contains('swiper-slide-duplicate')) {
-            const IDName = element.getAttribute('id');
-            element.setAttribute('id', IDName + '-duplicate');
-          }
+        // 自動再生ありの場合：ボタン位置の設定
+        if (autoplaySetting) {
+          const hoge = (thumbHeight - 34) / 2;
+          controlButton.style.bottom = `${hoge}px`;
+        }
 
-          // サムネイルエリアの高さ分だけコンテンツを含むスライドの下にpaddingを取る
-          const inner = element.querySelector('.p-catousel__item');
-          if (inner.classList.contains('p-catousel__item--content')) {
-            inner.style.paddingBottom = padding + 'px';
-          }
+        // メインスライドでループ表示用に複製したスライドのIDを変更
+        const duplicateSlides = el.querySelectorAll('.swiper-slide.swiper-slide-duplicate');
+        duplicateSlides.forEach((slide) => {
+          const slideID = slide.getAttribute('id');
+          slide.setAttribute('id', `${slideID}-duplicate`);
         });
 
         // サムネイルにdata属性「data-thumb-index」を設定（キーボード操作で使用）
