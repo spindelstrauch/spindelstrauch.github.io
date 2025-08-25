@@ -73,8 +73,6 @@ const setThumbOptions = (SPThumbView, PCThumbView) => ({
 /**
  * スライド初期設定
  */
-// windowサイズ取得
-let winWidth = window.outerWidth;
 
 /**
  * スライド枚数に応じて設定を変更する
@@ -82,6 +80,10 @@ let winWidth = window.outerWidth;
 const slideArea = document.querySelectorAll('.p-carousel'); // カルーセル本体
 
 slideArea.forEach((el) => {
+  // windowサイズ取得
+  const winWidth = window.outerWidth;
+
+  // スライドエリアのIDを取得
   const id = el.getAttribute('id');
   const targetSlide = document.getElementById(id);
 
@@ -220,8 +222,8 @@ slideArea.forEach((el) => {
 
         // 自動再生ありの場合：ボタン位置の設定
         if (autoplaySetting) {
-          const hoge = (thumbHeight - 34) / 2;
-          controlButton.style.bottom = `${hoge}px`;
+          const buttonPos = (thumbHeight - 34) / 2;
+          controlButton.style.bottom = `${buttonPos}px`;
         }
 
         // メインスライドでループ表示用に複製したスライドのIDを変更
@@ -353,24 +355,24 @@ slideArea.forEach((el) => {
     }
   };
 
-  // サムネイル
-  const hoge = targetSlide.querySelector('[role=tablist]');
+  // サムネイルのマウスイベント
+  const tablist = targetSlide.querySelector('[role=tablist]');
 
   //mouse
-  hoge.addEventListener('mouseover', (event) => {
+  tablist.addEventListener('mouseover', (event) => {
     autoplayStop(isAutoplay, isAutoplayOn);
   });
 
-  hoge.addEventListener('mouseout', (event) => {
+  tablist.addEventListener('mouseout', (event) => {
     autoplayStart(isAutoplay, isAutoplayOn);
   });
 
   // focus
-  hoge.addEventListener('focusin', (event) => {
+  tablist.addEventListener('focusin', (event) => {
     autoplayStop(isAutoplay, isAutoplayOn);
   });
 
-  hoge.addEventListener('focusout', (event) => {
+  tablist.addEventListener('focusout', (event) => {
     autoplayStart(isAutoplay, isAutoplayOn);
   });
 
