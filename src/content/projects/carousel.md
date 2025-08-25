@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: 'アクセシビリティに配慮したカルーセルコンテンツの作成'
 category:
   - コーディング
