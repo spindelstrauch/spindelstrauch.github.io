@@ -1,4 +1,5 @@
 ---
+draft: false
 title: '社内向け年賀状コンペサイト'
 category:
   - デザイン
