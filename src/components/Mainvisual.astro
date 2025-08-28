@@ -14,8 +14,8 @@
 		align-items: center;
 		justify-content: start;
 		flex-direction: column;
-		padding: 23vh 0 3rem;
-		gap: 3rem;
+		padding: 26vh 0 3rem;
+		gap: 4rem;
 	}
 
 	.p-mv__lead {
@@ -23,7 +23,14 @@
 		margin-right: auto;
 		margin-left: auto;
 		gap: 32px;
-		padding: 2rem;
+		padding-bottom: 2rem;
+	}
+
+	@media screen and (max-width: 768px) {
+		.p-mv__lead {
+			padding-right: 2rem;
+			padding-left: 2rem;
+		}
 	}
 
 	.p-mv__catchCopy {
