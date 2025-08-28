@@ -4,6 +4,20 @@
 <section class="l-section l-section--skills" id="skills">
     <div class="l-inner">
         <h2 class="c-heading" data-subtext="Skills">スキル</h2>
+        <dl class="p-skills__explanation">
+            <div>
+                <dt>実務レベル</dt>
+                <dd>自走してスムーズに対応できるレベル</dd>
+            </div>
+            <div>
+                <dt>実務経験あり</dt>
+                <dd>実務経験があり、必要に応じて調べながら対応できるレベル</dd>
+            </div>
+            <div>
+                <dt>入門レベル</dt>
+                <dd>概要や基本的な仕組みは理解しているが、実務経験はないレベル</dd>
+            </div>
+        </dl>
         <div class="p-skills">
             <section class="p-skills__section">
                 <h3 class="c-subHeading">技術スキル</h3>
@@ -79,6 +93,44 @@
 		background-color: #fff;
 		border-radius: 10px;
 	}
+
+    .p-skills__explanation {
+        width: fit-content;
+        margin: 0 auto 2rem;
+        padding: 1rem 1.5rem;
+        font-size: 0.875rem;
+        color: #666;
+        border: 1px solid #ccc;
+    }
+
+    .p-skills__explanation > div {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    @media (max-width: 767px) {
+        .p-skills__explanation > div {
+            flex-direction: column;
+            gap: 0;
+        }
+    }
+
+    .p-skills__explanation div + div {
+        margin-top: 0.5rem;
+    }
+
+    .p-skills__explanation dt {
+        font-weight: bold;
+        width: 6em;
+    }
+
+    @media (min-width: 768px) {
+        .p-skills__explanation dd::before {
+            content: "：";
+            margin-right: 0.25rem;
+        }
+    }
+
 
 	.p-skills_list dt {
 		padding-left: 2.5rem;
