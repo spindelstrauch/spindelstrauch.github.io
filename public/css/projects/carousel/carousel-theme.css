@@ -36,7 +36,7 @@
 .p-slide4__link {
   margin-top: 2rem;
 }
-.c-button {
+.c-slide-button {
   padding: 1rem 2rem;
   color: #5d96d4;
   background-color: #fff;
@@ -44,11 +44,16 @@
   text-decoration: none !important;
 }
 @media screen and (max-width: 767px) {
-  .p-slide4__content,
-  .p-slide4__image {
+  .p-slide4__content {
     width: 100%;
+  }
+  .p-slide4__image {
+    display: none;
   }
   .p-slide4__content {
     padding: 2rem;
+  }
+  .c-slide-button {
+    padding: 0.5rem 1rem;
   }
 } /*# sourceMappingURL=carousel-theme.css.map */

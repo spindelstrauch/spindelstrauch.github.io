@@ -157,7 +157,7 @@ jsfiles:
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
               </p>
-              <div class="p-slide4__link"><a href="#" class="c-button c-button--white">Link Button</a></div>
+              <div class="p-slide4__link"><a href="#" class="c-slide-button c-button--white">Link Button</a></div>
             </div>
             <div class="p-slide4__image"><img src="/images/projects/carousel/image4_l.jpg" alt="" /></div>
           </div>
@@ -305,7 +305,7 @@ jsfiles:
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
               </p>
-              <div class="p-slide4__link"><a href="#" class="c-button c-button--white">Link Button</a></div>
+              <div class="p-slide4__link"><a href="#" class="c-slide-button c-button--white">Link Button</a></div>
             </div>
             <div class="p-slide4__image"><img src="/images/projects/carousel/image4_l.jpg" alt="" /></div>
           </div>
