@@ -1,0 +1,156 @@
+---
+---
+
+<section class="l-section l-section--skills" id="skills">
+    <div class="l-inner">
+        <h2 class="c-heading" data-subtext="Skills">スキル</h2>
+        <dl class="p-skills__explanation">
+            <div>
+                <dt>実務レベル</dt>
+                <dd>自走してスムーズに対応できるレベル</dd>
+            </div>
+            <div>
+                <dt>実務経験あり</dt>
+                <dd>実務経験があり、必要に応じて調べながら対応できるレベル</dd>
+            </div>
+            <div>
+                <dt>入門レベル</dt>
+                <dd>概要や基本的な仕組みは理解しているが、実務経験はないレベル</dd>
+            </div>
+        </dl>
+        <div class="p-skills">
+            <section class="p-skills__section">
+                <h3 class="c-subHeading">技術スキル</h3>
+                <dl class="p-skills_list">
+                    <div class="p-skills__listitem">
+                        <dt>HTML</dt>
+                        <dd>実務レベル</dd>
+                    </div>
+                    <div class="p-skills__listitem">
+                        <dt>CSS</dt>
+                        <dd>実務レベル</dd>
+                    </div>
+                    <div class="p-skills__listitem">
+                        <dt>JavaScript</dt>
+                        <dd>実務経験あり</dd>
+                    </div>
+                    <div class="p-skills__listitem">
+                        <dt>モダンJSフレームワーク（React / Vue）</dt>
+                        <dd>入門レベル</dd>
+                    </div>
+                    <div class="p-skills__listitem">
+                        <dt>WordPress</dt>
+                        <dd>実務レベル</dd>
+                    </div>
+                    <div class="p-skills__listitem">
+                        <dt>Movable Type</dt>
+                        <dd>実務レベル</dd>
+                    </div>
+                </dl>
+                <p>その他制作経験のあるCMS：a-blog CMS</p>
+            </section>
+            <section class="p-skills__section">
+                <h3 class="c-subHeading">ソフトウェア</h3>
+                <dl class="p-skills_list">
+                    <div class="p-skills__listitem">
+                        <dt>Adobe Photoshop</dt>
+                        <dd>実務レベル</dd>
+                    </div>
+                    <div class="p-skills__listitem">
+                        <dt>Adobe Illustrator</dt>
+                        <dd>実務レベル</dd>
+                    </div>
+                    <div class="p-skills__listitem">
+                        <dt>Adobe XD</dt>
+                        <dd>実務レベル</dd>
+                    </div>
+                    <div class="p-skills__listitem">
+                        <dt>Figma</dt>
+                        <dd>実務経験あり</dd>
+                    </div>
+                    <div class="p-skills__listitem">
+                        <dt>Microsoft Office</dt>
+                        <dd>実務レベル</dd>
+                    </div>
+                </dl>
+            </section>
+        </div>
+    </div>
+</section>
+
+<style>
+    .p-skills {
+		display: grid;
+		gap: 5.55vw 32px;
+	}
+
+	.p-skills__section {
+		display: grid;
+		grid-template-rows: subgrid;
+		grid-row: span 3;
+		grid-gap: 2rem;
+		padding: 2rem 1.5rem;
+		background-color: #fff;
+		border-radius: 10px;
+	}
+
+    .p-skills__explanation {
+        width: fit-content;
+        margin: 0 auto 2rem;
+        padding: 1rem 1.5rem;
+        font-size: 0.875rem;
+        color: #666;
+        border: 1px solid #ccc;
+    }
+
+    .p-skills__explanation > div {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    @media (max-width: 767px) {
+        .p-skills__explanation > div {
+            flex-direction: column;
+            gap: 0;
+        }
+    }
+
+    .p-skills__explanation div + div {
+        margin-top: 0.5rem;
+    }
+
+    .p-skills__explanation dt {
+        font-weight: bold;
+        width: 6em;
+    }
+
+    @media (min-width: 768px) {
+        .p-skills__explanation dd::before {
+            content: "：";
+            margin-right: 0.25rem;
+        }
+    }
+
+
+	.p-skills_list dt {
+		padding-left: 2.5rem;
+		font-size: 1.25rem;
+		font-weight: bold;
+		background: transparent url('/images/ico_check.svg') no-repeat left center;
+		background-size: 1.5rem;
+	}
+
+	.p-skills_list dd {
+		padding-left: 2.5rem;
+	}
+
+	.p-skills_list div + div {
+		margin-top: 1.75rem;
+	}
+
+	@media (min-width: 768px) {
+		.p-skills {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+</style>
