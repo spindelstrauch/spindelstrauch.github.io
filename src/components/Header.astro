@@ -25,16 +25,16 @@ function toAnchor(id) {
 
     document.addEventListener("DOMContentLoaded", () => {
         const header = document.getElementById('header');
-        const button = document.getElementById('menuCtrl');
+        const menuCtrlButton = document.getElementById('menuCtrl');
         const nav = document.getElementById('nav');
 
          // ハンバーガーメニュー
-        button?.addEventListener('click', () => {
-            button?.classList.toggle('isActive');
+        menuCtrlButton?.addEventListener('click', () => {
+            menuCtrlButton?.classList.toggle('isActive');
             nav?.classList.toggle('isActive');
 
-            const current = button.getAttribute('aria-expanded') === 'false';
-            current ? button?.setAttribute('aria-expanded', 'true') : button?.setAttribute('aria-expanded', 'false');
+            const current = menuCtrlButton.getAttribute('aria-expanded') === 'false';
+            current ? menuCtrlButton?.setAttribute('aria-expanded', 'true') : menuCtrlButton?.setAttribute('aria-expanded', 'false');
         });
 
         // スクロール
@@ -52,8 +52,8 @@ function toAnchor(id) {
                 });
 
                 // メニューを閉じる
-                nav?.classList.toggle('isOpen');
-                button.setAttribute('aria-expanded', 'false');
+                nav?.classList.toggle('isActive');
+                menuCtrlButton.setAttribute('aria-expanded', 'false');
             });
         });
 

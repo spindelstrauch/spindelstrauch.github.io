@@ -5,6 +5,7 @@ import Footer from '../components/Footer.astro';
 
 import Mainvisual from '../components/Mainvisual.astro';
 import About from '../components/Top_about.astro';
+import Skills from '../components/skills.astro';
 
 import '../styles/global.css';
 import '@fontsource/zen-maru-gothic/400.css';
@@ -45,68 +46,7 @@ const publishEntries = projectAllEntries
 			<Mainvisual />
 			<div class="l-mainContents">
 				<About />
-				<section class="l-section l-section--skills" id="skills">
-					<div class="l-inner">
-						<h2 class="c-heading" data-subtext="Skills">スキル</h2>
-						<div class="p-skills">
-							<section class="p-skills__section">
-								<h3 class="c-subHeading">技術スキル</h3>
-								<dl class="p-skills_list">
-									<div class="p-skills__listitem">
-										<dt>HTML</dt>
-										<dd>実務レベル</dd>
-									</div>
-									<div class="p-skills__listitem">
-										<dt>CSS</dt>
-										<dd>実務レベル</dd>
-									</div>
-									<div class="p-skills__listitem">
-										<dt>JavaScript</dt>
-										<dd>実務経験あり</dd>
-									</div>
-									<div class="p-skills__listitem">
-										<dt>モダンJSフレームワーク（React / Vue）</dt>
-										<dd>入門レベル</dd>
-									</div>
-									<div class="p-skills__listitem">
-										<dt>WordPress</dt>
-										<dd>実務レベル</dd>
-									</div>
-									<div class="p-skills__listitem">
-										<dt>Movable Type</dt>
-										<dd>実務レベル</dd>
-									</div>
-								</dl>
-								<p>その他制作経験のあるCMS：a-blog CMS</p>
-							</section>
-							<section class="p-skills__section">
-								<h3 class="c-subHeading">ソフトウェア</h3>
-								<dl class="p-skills_list">
-									<div class="p-skills__listitem">
-										<dt>Adobe Photoshop</dt>
-										<dd>実務レベル</dd>
-									</div>
-									<div class="p-skills__listitem">
-										<dt>Adobe Illustrator</dt>
-										<dd>実務レベル</dd>
-									</div>
-									<div class="p-skills__listitem">
-										<dt>Adobe XD</dt>
-										<dd>実務レベル</dd>
-									</div>
-									<div class="p-skills__listitem">
-										<dt>Figma</dt>
-										<dd>実務経験あり</dd>
-									</div>
-									<div class="p-skills__listitem">
-										<dt>Microsoft Office</dt>
-										<dd>実務レベル</dd>
-									</div>
-								</dl>
-							</section>
-						</div>
-					</div>
-				</section>
+				<Skills />
 				<section class="l-section l-section--project --bg" id="project">
 					<div class="l-inner">
 						<h2 class="c-heading" data-subtext="Browse My Recent Projects">制作物</h2>
@@ -137,43 +77,6 @@ const publishEntries = projectAllEntries
 	</body>
 </html>
 <style>
-	.p-skills {
-		display: grid;
-		gap: 5.55vw 32px;
-	}
-
-	.p-skills__section {
-		display: grid;
-		grid-template-rows: subgrid;
-		grid-row: span 3;
-		grid-gap: 2rem;
-		padding: 2rem 1.5rem;
-		background-color: #fff;
-		border-radius: 10px;
-	}
-
-	.p-skills_list dt {
-		padding-left: 2.5rem;
-		font-size: 1.25rem;
-		font-weight: bold;
-		background: transparent url('/images/ico_check.svg') no-repeat left center;
-		background-size: 1.5rem;
-	}
-
-	.p-skills_list dd {
-		padding-left: 2.5rem;
-	}
-
-	.p-skills_list div + div {
-		margin-top: 1.75rem;
-	}
-
-	@media (min-width: 768px) {
-		.p-skills {
-			grid-template-columns: repeat(2, minmax(0, 1fr));
-		}
-	}
-
 	.p-projectList {
 		display: grid;
 		gap: 5.55vw 2rem;
