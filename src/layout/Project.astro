@@ -28,6 +28,7 @@ const tools = entrydata.tools;
 const category = entrydata.category;
 const images = entrydata.images;
 const role = entrydata.role;
+const techstack = entrydata.techstack;
 const stylesheets = entrydata.stylesheets;
 const jsfiles = entrydata.jsfiles;
 ---
@@ -97,7 +98,22 @@ const jsfiles = entrydata.jsfiles;
                             </dd>
                             </div>
                         )
-
+                    }
+                    {
+                        techstack && techstack?.length > 0 && (
+                            <div>
+                                <dt>技術スタック</dt>
+                                <dd>
+                                    <ul class="pl-5 list-disc">
+                                    {
+                                        techstack.map((tool) =>
+                                            <li>{tool}</li>
+                                        )
+                                    }
+                                    </ul>
+                                </dd>
+                            </div>
+                        )
                     }
                     {
                         tools && tools?.length > 0 && (
