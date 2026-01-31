@@ -28,6 +28,7 @@ const tools = entrydata.tools;
 const category = entrydata.category;
 const images = entrydata.images;
 const role = entrydata.role;
+const techstack = entrydata.techstack;
 const stylesheets = entrydata.stylesheets;
 const jsfiles = entrydata.jsfiles;
 ---
@@ -45,7 +46,6 @@ const jsfiles = entrydata.jsfiles;
         <Header />
         <main class="mainContents" id="mainContents">
             <div class="p-project">
-                <div class="p-project__image"><img src={entrydata.thumbnail} alt=""></div>
                 <header class="p-project-header">
                     <ul class="p-project__category c-tags">
                         {
@@ -58,10 +58,10 @@ const jsfiles = entrydata.jsfiles;
                 </header>
                 {
                      images && (
-                        <div class=`mt-20 ${entrydata.imageslayout}`>
+                        <div class={`mt-20 ${entrydata.imageslayout}`}>
                             {
                                 images.map((item) => (
-                                    <div><img src={item} alt=`${title}イメージ` /></div>
+                                    <div><img src={item} alt={`${title}イメージ`} loading="lazy" /></div>
                                 ))
                             }
                         </div>
@@ -97,7 +97,22 @@ const jsfiles = entrydata.jsfiles;
                             </dd>
                             </div>
                         )
-
+                    }
+                    {
+                        techstack && techstack?.length > 0 && (
+                            <div>
+                                <dt>技術スタック</dt>
+                                <dd>
+                                    <ul class="pl-5 list-disc">
+                                    {
+                                        techstack.map((tool) =>
+                                            <li>{tool}</li>
+                                        )
+                                    }
+                                    </ul>
+                                </dd>
+                            </div>
+                        )
                     }
                     {
                         tools && tools?.length > 0 && (
@@ -136,13 +151,15 @@ const jsfiles = entrydata.jsfiles;
         max-width: var(--content-width);
         margin-right: auto;
         margin-left: auto;
+        padding-top: 15em;
         padding-right: 2rem;
         padding-left: 2rem;
     }
 
     @media screen and (min-width: 896px) {
         .p-project {
-            padding: 0;
+            padding-right: 0;
+            padding-left: 0;
         }
     }
 
@@ -160,10 +177,6 @@ const jsfiles = entrydata.jsfiles;
         height: 100%;
         object-fit: cover;
         opacity: 0.5;
-    }
-
-    .p-project__image + .p-project-header {
-        margin-top: 5rem;
     }
 
     .p-project-header {

@@ -15,7 +15,7 @@
             </div>
             <div>
                 <dt>入門レベル</dt>
-                <dd>概要や基本的な仕組みは理解しているが、実務経験はないレベル</dd>
+                <dd>概要や基本的な仕組みは理解しているが、実務経験がない</dd>
             </div>
         </dl>
         <div class="p-skills">
@@ -35,8 +35,13 @@
                         <dd>実務経験あり</dd>
                     </div>
                     <div class="p-skills__listitem">
-                        <dt>モダンJSフレームワーク（React / Vue）</dt>
-                        <dd>入門レベル</dd>
+                        <dt>モダンフレームワーク</dt>
+                        <dd>
+                            <ul>
+                                <li>Astro：実務経験あり</li>
+                                <li>React / Vue：入門レベル</li>
+                            </ul>
+                        </dd>
                     </div>
                     <div class="p-skills__listitem">
                         <dt>WordPress</dt>
@@ -133,8 +138,8 @@
 
 
 	.p-skills_list dt {
-		padding-left: 2.5rem;
-		font-size: 1.25rem;
+		padding-left: var(--size-mm);
+		font-size: var(--size-sm);
 		font-weight: bold;
 		background: transparent url('/images/ico_check.svg') no-repeat left center;
 		background-size: 1.5rem;
@@ -145,7 +150,7 @@
 	}
 
 	.p-skills_list div + div {
-		margin-top: 1.75rem;
+		margin-top: var(--size-ms);
 	}
 
 	@media (min-width: 768px) {
