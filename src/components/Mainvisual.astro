@@ -2,48 +2,77 @@
 ---
 
 <div class="p-mv">
-	<h2 class="p-mv__catchCopy">誰かの「困らない」を<br class="u-forSP">そっと支える仕事を。</h2>
-	<div class="p-mv__image"><img src="/images/mv_main.png" alt=""></div>
-	<p class="p-mv__lead">誰もが迷わず使えるように。<br>ほんの小さな工夫や調整を積み重ねて、“当たり前”を支えるものづくりをしています。</p>
+	<div class="p-mv__inner">
+		<div class="p-mv__text">
+			<h2 class="p-mv__catchCopy">誰かの「困らない」を<br>そっと支える仕事を。</h2>
+			<p class="p-mv__lead">誰もが迷わず使えるように。<br>ほんの小さな工夫や調整を積み重ねて、“当たり前”を支えるものづくりをしています。</p>
+		</div>
+		<div class="p-mv__image"><img src="/images/mv_main.png" alt=""></div>
+		</div>
 	</div>
 </div>
 
 <style>
 	.p-mv {
-		display: flex;
+		container-type: inline-size;
+	}
+
+	.p-mv__inner {
+		display: grid;
+		grid-template-columns: 1fr auto;
 		align-items: center;
-		justify-content: start;
-		flex-direction: column;
-		padding: 26vh 0 3rem;
-		gap: 4rem;
+		max-width: var(--header-width);
+		margin-inline: auto;
+		padding-top: 160px;
 	}
 
-	.p-mv__lead {
-		max-width: 64rem;
-		margin-right: auto;
-		margin-left: auto;
-		gap: 32px;
-		padding-bottom: 2rem;
+	@container (max-width: 1240px) {
+		.p-mv__text {
+			padding-left: max(2vw, var(--size-sl));
+		}
+
+		.p-mv__image {
+			padding-right: max(2vw, var(--size-sl));
+		}
 	}
 
-	@media screen and (max-width: 768px) {
-		.p-mv__lead {
-			padding-right: 2rem;
-			padding-left: 2rem;
+	@container (max-width: 767px) {
+		.p-mv__inner {
+			grid-template-columns: 1fr;
+    	row-gap: 1rem;
+			place-items: center;
+		}
+
+		.p-mv__text,
+		.p-mv__image {
+			padding-inline: max(2vw, var(--size-sl));
 		}
 	}
 
 	.p-mv__catchCopy {
-		font-size: clamp(1.5rem, 1.136rem + 1.82vw, 2.5rem);
+		font-size: clamp(1.953rem, 1.5661rem + 1.6509vw, 3.051875rem);
 		font-family: var(--font-heading);
 		font-weight: bold;
+		line-height: 1.5;
 	}
 
-	.p-mv__leadCopy {
-		margin-top: 2rem;
+	.p-mv__lead {
+		max-width: 64rem;
+		margin-top: var(--size-sl);
+		line-height: 1.8;
 	}
 
-	.p-mv__image {
-		flex-shrink: 0;
+	.p-mv__image img {
+		display: block;
+		width: 100%;
+		max-width: 320px;
+		height: auto;
+		transform: translateY(50px);
+	}
+
+	@container (max-width: 767px) {
+		.p-mv__image img {
+			max-width: 60vw;
+		}
 	}
 </style>

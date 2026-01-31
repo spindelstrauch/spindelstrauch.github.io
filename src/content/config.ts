@@ -16,6 +16,7 @@ const projectCollection = defineCollection({
       .optional(),
     role: z.array(z.string()).optional(),
     tools: z.array(z.string()).optional(),
+    techstack: z.array(z.string()).optional(),
     design: z.array(z.string()).optional(),
     stylesheets: z.array(z.string()).optional(),
     jsfiles: z.array(z.string()).optional(),
