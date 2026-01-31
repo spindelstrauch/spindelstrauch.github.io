@@ -7,7 +7,17 @@
   --bg-color: #f2f6f8;
   --highlight: #fbbf2480;
 
-  --content-width: 56rem; /* 896px */
+  /* --font-base: 16px; */
+  --size-ss: 0.8rem;
+  --size-sm: 1.25rem;
+  --size-sl: 1.563rem;
+  --size-ms: 1.953rem;
+  --size-mm: 2.441rem;
+  --size-ml: 3.052rem;
+  --size-lg: 3.815rem;
+
+  --content-width: 896px;
+  --header-width: 1040px;
 
   --font-base:
     font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans',
@@ -39,8 +49,7 @@ img {
   max-width: var(--content-width);
   margin-right: auto;
   margin-left: auto;
-  padding-right: 2rem;
-  padding-left: 2rem;
+  padding-inline: max(2vw, var(--size-sl));
 }
 
 @media screen and (min-width: 896px) {
@@ -50,8 +59,8 @@ img {
 }
 
 .c-heading {
-  margin-bottom: 3rem;
-  font-size: 2rem;
+  margin-bottom: var(--size-mm);
+  font-size: var(--size-ms);
   color: var(--main-color);
   font-family: var(--font-heading);
   font-weight: bold;
@@ -63,14 +72,14 @@ img {
   display: block;
   margin: 0;
   color: var(--sub-color);
-  font-size: 0.75rem;
+  font-size: var(--size-ss);
   text-transform: uppercase;
 }
 
 .c-subHeading {
   position: relative;
-  padding-bottom: 10px;
-  font-size: 1.5rem;
+  padding-bottom: var(--size-ss);
+  font-size: var(--size-sm);
   font-family: var(--font-heading);
   font-weight: bold;
   text-align: center;
@@ -104,10 +113,11 @@ img {
   gap: 1rem;
 
   li {
-    padding: 0 1.5rem;
+    padding: 0 var(--size-sl);
     color: #fff;
-    font-size: 0.875rem;
+    font-size: var(--size-ss);
     font-family: var(--font-heading);
+    line-height: 1.8;
     background-color: var(--sub-color);
     border-radius: 5px;
   }

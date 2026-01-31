@@ -131,7 +131,7 @@ function toAnchor(id) {
     position: fixed;
     top: 0;
     width: 100%;
-    padding: 10px 20px;
+    padding: var(--size-sm) max(2vw, var(--size-sl));
     z-index: 100;
 }
 
@@ -267,13 +267,12 @@ a.header__text:hover {
     }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1040px) {
     .header {
         display: flex;
         align-items: stretch;
         align-items: center;
         justify-content: space-between;
-        padding: 20px 30px;
     }
 
     .header__menu {
