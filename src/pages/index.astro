@@ -4,7 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 import Mainvisual from '../components/Mainvisual.astro';
-import About from '../components/Top_about.astro';
+import About from '../components/About.astro';
 import Skills from '../components/Skills.astro';
 
 import '../styles/global.css';
@@ -12,17 +12,14 @@ import '@fontsource/zen-maru-gothic/400.css';
 import '@fontsource-variable/quicksand';
 
 import { getCollection } from 'astro:content';
-const projectAllEntries = await getCollection('projects');
 
 // 下書きを除外＆並び順調整
-const publishEntries = projectAllEntries
+const projectAllEntries = await getCollection('projects');
+const publishEntries: typeof projectAllEntries = projectAllEntries
 .filter(
 	(post) => !post.data.draft
 )
 .sort((a, b) => {
-	if (!a) return 1;
-	if (!b) return -1;
-
 	const orderA = a.data?.order ?? Infinity;
 	const orderB = b.data?.order ?? Infinity;
 

@@ -5,7 +5,7 @@ import '../styles/global.css';
 import '@fontsource/zen-maru-gothic/700.css';
 import '@fontsource/sacramento';
 
-function toAnchor(id) {
+function toAnchor(id: string): string {
     return isTop ? `#${id}` : `/#${id}`;
 }
 ---

@@ -6,6 +6,22 @@ import HeaderContent from "../components/HeaderContent.astro";
 import '@fontsource/zen-maru-gothic/400.css';
 import '@fontsource-variable/quicksand';
 
+interface Props {
+    entrydata: {
+        title: string;
+        category: string[];
+        thumbnail?: string;
+        images?: string[];
+        imagesLayout?: string[];
+        url?: string | '非公開' | '準備中' | '公開終了';
+        role?: string[];
+        tools?: string[];
+        techstack?: string[];
+        stylesheets?: string[];
+        jsfiles?: string[];
+    };
+}
+
 const { entrydata } = Astro.props;
 
 /**
@@ -58,7 +74,7 @@ const jsfiles = entrydata.jsfiles;
                 </header>
                 {
                      images && (
-                        <div class={`mt-20 ${entrydata.imageslayout}`}>
+                        <div class={`mt-20 ${entrydata.imagesLayout}`}>
                             {
                                 images.map((item) => (
                                     <div><img src={item} alt={`${title}イメージ`} loading="lazy" /></div>
