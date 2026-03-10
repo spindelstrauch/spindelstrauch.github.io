@@ -3,59 +3,66 @@
 ---
 
 <section class="l-section l-section--about --bg" id="about">
-    <div class="l-inner">
+    <div class="l-inner space-y-4">
         <h2 class="c-heading" data-subtext="About Me">自己紹介</h2>
-        <div class="flex justify-center mb-4"><img src="/images/icon.svg" alt=""></div>
-        <p class=" text-center text-lg font-bold mb-10">こまたまゆみ　KOMATA Mayumi</p>
+        <div class="flex justify-center"><img src="/images/icon.svg" alt=""></div>
+        <p class="text-center text-lg font-bold mb-10">こまたまゆみ　KOMATA Mayumi</p>
         <p>
         大学卒業後、印刷会社のWeb部門にてマークアップエンジニアとしてキャリアを開始し、その後Web制作会社に勤務。現在は社内情報システム部門と兼務しながらマークアップ業務に従事しています。約20年にわたり、公共施設、EC、保険分野など幅広いWebサイトにおいて、新規構築からリニューアル、運用・保守まで一貫して担当してきました。
         </p>
-        <p class="mt-4">
+        <p >
         私が心がけているのは、<span class="c-highlight">「誰かにとっての&ldquo;困らない&rdquo;を、そっと支える」</span>こと。
         </p>
-        <p class="mt-4">
+        <p>
         Web関連業務に関わる中で、単に「作る」だけではなく、見る人・使う人の立場に立ったものづくりを大切にしてきました。
         </p>
-        <p class="mt-4">
+        <p>
         情報を発信したい人、受け取る人、運用していく人——Webサイトにはさまざまな立場の人が関わります。ユーザーにとってわかりやすく、クライアントにとって扱いやすい。そんなWebサイトや仕組みを、地道に、そして丁寧に支えていきたいと考えています。
         </p>
-        <ol class="p-corevalues">
-            <li class="p-corevalues__item">
-                <div class="p-corevalues__image"><img src="/images/img_corevalues01.png" alt=""></div>
-                <p class="p-corevalues__heading">ユーザーと運用の両面に配慮した<br>設計・実装</p>
-                <p class="p-corevalues__text">
-                    視認性・理解しやすさに加え、運用者にとっても管理・更新しやすい構造を設計。アクセシビリティや保守性も重視した柔軟な実装を心がけています。
-                </p>
-            </li>
-            <li class="p-corevalues__item">
-                <div class="p-corevalues__image"><img src="/images/img_corevalues02.png" alt=""></div>
-                <p class="p-corevalues__heading">計画、実装から運用まで一貫対応</p>
-                <p class="p-corevalues__text">
-                    HTML/CSS/JavaScriptによる実装に加え、要件定義、ワイヤーフレーム作成、サーバー選定、制作進行管理、掲載図版・イラスト作成など、一連の制作工程を一貫して担当した案件もあります。
-                </p>
-            </li>
-            <li class="p-corevalues__item">
-                <div class="p-corevalues__image"><img src="/images/img_corevalues03.png" alt=""></div>
-                <p class="p-corevalues__heading">クライアント・社内向け<br>ドキュメント作成業務</p>
-                <p class="p-corevalues__text">
-                    クライアント向けの更新マニュアルや、社内向けのコーディングガイドの作成など、ナレッジ共有やドキュメント整備も行います。
-                </p>
-            </li>
-        </ol>
+        <div class="p-corevalues">
+            <h3 class="c-subHeading">得意としていること</h3>
+            <ol class="p-corevalues__items">
+                <li class="p-corevalues__item">
+                    <div class="p-corevalues__image"><img src="/images/img_corevalues01.png" alt=""></div>
+                    <p class="p-corevalues__heading">ユーザーと運用の両面に配慮した<br>設計・実装</p>
+                    <p class="p-corevalues__text">
+                        視認性・理解しやすさに加え、運用者にとっても管理・更新しやすい構造を設計。アクセシビリティや保守性も重視した柔軟な実装を心がけています。
+                    </p>
+                </li>
+                <li class="p-corevalues__item">
+                    <div class="p-corevalues__image"><img src="/images/img_corevalues02.png" alt=""></div>
+                    <p class="p-corevalues__heading">計画、実装から運用まで一貫対応</p>
+                    <p class="p-corevalues__text">
+                        HTML/CSS/JavaScriptによる実装に加え、要件定義、ワイヤーフレーム作成、サーバー選定、制作進行管理、掲載図版・イラスト作成など、一連の制作工程を一貫して担当した案件もあります。
+                    </p>
+                </li>
+                <li class="p-corevalues__item">
+                    <div class="p-corevalues__image"><img src="/images/img_corevalues03.png" alt=""></div>
+                    <p class="p-corevalues__heading">クライアント・社内向け<br>ドキュメント作成業務</p>
+                    <p class="p-corevalues__text">
+                        クライアント向けの更新マニュアルや、社内向けのコーディングガイドの作成など、ナレッジ共有やドキュメント整備も行います。
+                    </p>
+                </li>
+            </ol>
+        </div>
     </div>
 </section>
 
 <style>
-	.p-corevalues {
+    .p-corevalues {
+        margin-top: var(--size-lg);
+    }
+
+	.p-corevalues__items {
 		display: grid;
 		gap: 1.25rem;
-		margin: 3.75rem 0 0;
+		margin: var(--size-ms) 0 0;
 		padding: 0;
 	}
 
 	.p-corevalues__item {
 		display: grid;
-		grid-gap: 1rem;
+		grid-gap: var(--size-ss);
 		background-color: #fff;
 		border-radius: 10px;
         border: 1px solid #DAE4EF;
@@ -71,15 +78,15 @@
 	.p-corevalues__heading {
 		font-weight: bold;
 		text-align: center;
-		padding: 0 1rem;
+		padding: 0 var(--size-ss);
 	}
 
 	.p-corevalues__text {
-		padding: 0 1rem 1rem;
+		padding: 0 var(--size-ss) var(--size-ss);
 	}
 
-	@media (min-width: 768px) {
-		.p-corevalues {
+	@container (min-width: 768px) {
+		.p-corevalues__items {
 			grid-template-columns: repeat(3, minmax(0, 1fr));
 		}
 
@@ -87,7 +94,7 @@
 			display: grid;
 			grid-template-rows: subgrid;
 			grid-row: span 3;
-			grid-gap: 1rem;
+			grid-gap: var(--size-ss);
 			background-color: #fff;
 			border-radius: 10px;
 		}
