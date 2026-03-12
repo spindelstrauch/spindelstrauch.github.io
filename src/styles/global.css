@@ -47,6 +47,7 @@ img {
   Layout
 */
 .l-section {
+  container-type: inline-size;
   padding: 5rem 0;
 }
 
@@ -55,7 +56,6 @@ img {
 }
 
 .l-section > .l-inner {
-  container-type: inline-size;
   max-width: var(--content-width);
   margin-right: auto;
   margin-left: auto;
