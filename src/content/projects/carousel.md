@@ -5,7 +5,7 @@ title: '運用サイト共通利用を想定したアクセシブルなスライ
 category:
   - コーディング
 detail: '運用サイト共通利用を想定したアクセシブルなスライド設計'
-thumbnail: '/images/projects/carousel/thumbnail.png'
+thumbnail: '../../images//projects/carousel/thumbnail.png'
 role:
   - 'ヒアリング・要件整理'
   - '実装方針の検討（アクセシビリティ要件を踏まえた技術選定）'

@@ -5,7 +5,7 @@ title: '社内業務効率化のための雇用契約書自動生成ツールの
 category:
   - ツール開発
 detail: 'Googleスプレッドシートに情報を記入することで、自動で雇用契約書書類を作成するツール'
-thumbnail: '/images/projects/employment_contract/fig_scope.png'
+thumbnail: '../../images/projects/employment_contract/fig_scope.png'
 role:
   - 'ヒアリング・要件整理'
   - 'Googleスプレッドシートによるテンプレート設計'

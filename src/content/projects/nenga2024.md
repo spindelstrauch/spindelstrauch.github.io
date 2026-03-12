@@ -4,10 +4,10 @@ title: '社内向け年賀状コンペサイト'
 category:
   - デザイン
   - コーディング
-thumbnail: '/images/projects/nenga2024/thumbnail.png'
+thumbnail: '../../images/projects/nenga2024/thumbnail.png'
 images:
-  - '/images/projects/nenga2024/desktop.png'
-  - '/images/projects/nenga2024/sp.png'
+  - '../../images/projects/nenga2024/desktop.png'
+  - '../../images/projects/nenga2024/sp.png'
 imageslayout: 'flex gap-8'
 url: '非公開'
 role:

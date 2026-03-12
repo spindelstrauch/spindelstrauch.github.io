@@ -5,10 +5,10 @@ title: '診療例外パターンに対応した診療日カレンダーの設計
 category:
   - WordPress
 detail: '医院Webサイトにおいて、診療日・休診日を視覚的に分かりやすく表示するための「診療日カレンダー」機能を実装した事例'
-thumbnail: '/images/projects/clinic_calendar/thumbnail.png'
+thumbnail: '../../images/projects/clinic_calendar/thumbnail.png'
 images:
-  - '/images/projects/clinic_calendar/calender_sample.png'
-  - '/images/projects/clinic_calendar/calender_edit.png'
+  - '../../images/projects/clinic_calendar/calender_sample.png'
+  - '../../images/projects/clinic_calendar/calender_edit.png'
 imageslayout: 'flex gap-8 flex-col md:flex-row'
 role:
   - 'ヒアリング・要件整理'

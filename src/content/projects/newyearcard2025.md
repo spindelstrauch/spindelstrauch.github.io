@@ -3,9 +3,9 @@ draft: false
 title: '年賀状イラスト'
 category:
   - イラスト作成
-thumbnail: '/images/projects/newyearcard2025/thumbnail.jpg'
+thumbnail: '../../images/projects/newyearcard2025/thumbnail.jpg'
 images:
-  - '/images/projects/newyearcard2025/newyearcard.jpg'
+  - '../../images/projects/newyearcard2025/newyearcard.jpg'
 imageslayout: 'flex justify-center max-w-2xl mx-auto'
 role:
   - イラスト

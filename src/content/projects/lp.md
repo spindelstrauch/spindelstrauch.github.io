@@ -3,9 +3,10 @@ draft: false
 order: 1
 title: 'Astroを活用した静的LPの設計・実装'
 category:
-  - Webサイト制作
+  - Astro
+  - コーディング
 detail: 'Astroを活用した静的LPの設計・実装'
-thumbnail: '/images/projects/astro/astro.jpg'
+thumbnail: '../../images/projects/astro/astro.jpg'
 role:
   - 'コーディング'
 techstack:

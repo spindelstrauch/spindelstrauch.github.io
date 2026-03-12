@@ -12,7 +12,7 @@ interface Props {
         category: string[];
         thumbnail?: string;
         images?: string[];
-        imagesLayout?: string[];
+        imageslayout?: string[];
         url?: string | '非公開' | '準備中' | '公開終了';
         role?: string[];
         tools?: string[];
@@ -74,10 +74,19 @@ const jsfiles = entrydata.jsfiles;
                 </header>
                 {
                      images && (
-                        <div class={`mt-20 ${entrydata.imagesLayout}`}>
+                        <div class={`mt-20 ${entrydata.imageslayout}`}>
                             {
                                 images.map((item) => (
-                                    <div><img src={item} alt={`${title}イメージ`} loading="lazy" /></div>
+                                    <div>
+                                        <img
+                                            src={item.src}
+                                            width={item.width}
+                                            height={item.height}
+                                            alt={`${title}イメージ`}
+                                            loading="lazy"
+                                        />
+                                    </div>
+                                    // <div><img src={item} alt={`${title}イメージ`} loading="lazy" /></div>
                                 ))
                             }
                         </div>
