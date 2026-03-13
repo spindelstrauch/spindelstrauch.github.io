@@ -5,7 +5,7 @@ title: 'Astroを活用した静的LPの設計・実装'
 category:
   - Astro
   - コーディング
-detail: 'Astroを活用した静的LPの設計・実装'
+detail: '運用性と制作効率の両立を目的として、ファッション系ECサイトのLPの制作に、Webサイトフレームワークの「Astro」を利用した事例です。'
 thumbnail: '../../images/projects/astro/astro.jpg'
 role:
   - 'コーディング'

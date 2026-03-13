@@ -4,6 +4,7 @@ title: '社内向け年賀状コンペサイト'
 category:
   - デザイン
   - コーディング
+detail: '会社年賀状デザインの社内公募に関する募集サイトの制作事例です。'
 thumbnail: '../../images/projects/nenga2024/thumbnail.png'
 images:
   - '../../images/projects/nenga2024/desktop.png'
@@ -14,7 +15,6 @@ role:
   - デザイン
   - コーディング
   - CGI設置
-detail: '会社年賀状デザインの社内公募に関する募集サイト'
 tools:
   - Figma
   - Illustrator

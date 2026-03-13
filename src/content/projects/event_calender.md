@@ -4,7 +4,7 @@ order: 3
 title: 'イベント情報投稿の設計・実装'
 category:
   - WordPress
-detail: 'Googleスプレッドシートに情報を記入することで、自動で雇用契約書書類を作成するツール'
+detail: 'イベント情報を掲載するWordPressサイトにおいて、入力項目を最小限に抑えつつ、決まったレイアウトでページを自動生成・管理できる仕組みを構築した事例です。'
 thumbnail: '../../images/projects/event_calender/fig_edit.png'
 images:
   - '../../images/projects/event_calender/fig_eventlist.png'

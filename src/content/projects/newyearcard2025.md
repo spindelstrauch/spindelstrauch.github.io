@@ -3,13 +3,13 @@ draft: false
 title: '年賀状イラスト'
 category:
   - イラスト作成
+detail: '2025年社内年賀状デザインコンペ応募イラストの制作事例です。'
 thumbnail: '../../images/projects/newyearcard2025/thumbnail.jpg'
 images:
   - '../../images/projects/newyearcard2025/newyearcard.jpg'
 imageslayout: 'flex justify-center max-w-2xl mx-auto'
 role:
   - イラスト
-detail: '2025年社内年賀状デザインコンペ応募イラスト'
 tools:
   - Adobe Illustrator
 ---

@@ -4,7 +4,7 @@ order: 4
 title: '運用サイト共通利用を想定したアクセシブルなスライド設計'
 category:
   - コーディング
-detail: '運用サイト共通利用を想定したアクセシブルなスライド設計'
+detail: '複数のサイトでの共通利用を想定したアクセシブルなスライドの制作事例です。'
 thumbnail: '../../images//projects/carousel/thumbnail.png'
 role:
   - 'ヒアリング・要件整理'

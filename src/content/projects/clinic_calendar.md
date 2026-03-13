@@ -4,7 +4,7 @@ order: 2
 title: '診療例外パターンに対応した診療日カレンダーの設計・実装'
 category:
   - WordPress
-detail: '医院Webサイトにおいて、診療日・休診日を視覚的に分かりやすく表示するための「診療日カレンダー」機能を実装した事例'
+detail: '医院Webサイトにおいて、診療日・休診日を視覚的に分かりやすく表示するための「診療日カレンダー」機能を実装した事例です。'
 thumbnail: '../../images/projects/clinic_calendar/thumbnail.png'
 images:
   - '../../images/projects/clinic_calendar/calender_sample.png'
