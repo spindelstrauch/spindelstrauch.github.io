@@ -2,15 +2,16 @@
 const isTop = Astro.url.pathname === '/';
 
 import '../styles/global.css';
+import '@fontsource/zen-maru-gothic/400.css';
 import '@fontsource/zen-maru-gothic/700.css';
-import '@fontsource/sacramento';
+import '@fontsource-variable/quicksand';
 
 function toAnchor(id: string): string {
     return isTop ? `#${id}` : `/#${id}`;
 }
 ---
 
-<script client:load>
+<script>
     // ページ内リンク時ヘッダースクロール位置調整
     const getHeaderOffset = () => {
         const baseRem = 16;

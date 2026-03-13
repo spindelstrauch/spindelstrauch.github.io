@@ -3,9 +3,6 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import HeaderContent from "../components/HeaderContent.astro";
 
-import '@fontsource/zen-maru-gothic/400.css';
-import '@fontsource-variable/quicksand';
-
 interface Props {
     entrydata: {
         title: string;
@@ -75,86 +72,85 @@ const jsfiles = entrydata.jsfiles;
                 {
                      images && (
                         <div class={`mt-20 ${entrydata.imageslayout}`}>
-                            {
-                                images.map((item) => (
-                                    <div>
-                                        <img
-                                            src={item.src}
-                                            width={item.width}
-                                            height={item.height}
-                                            alt={`${title}イメージ`}
-                                            loading="lazy"
-                                        />
-                                    </div>
-                                    // <div><img src={item} alt={`${title}イメージ`} loading="lazy" /></div>
-                                ))
-                            }
+                        {
+                        images.map((item) => (
+                            <div>
+                                <img
+                                    src={item.src}
+                                    width={item.width}
+                                    height={item.height}
+                                    alt={`${title}イメージ`}
+                                    loading="lazy"
+                                />
+                            </div>
+                        ))
+                        }
                         </div>
                      )
                 }
                 <dl class="p-project__summary">
+                {
+                url && (
+                <div>
+                    <dt>URL</dt>
                     {
-                        url && (
-                            <div>
-                                <dt>URL</dt>
-                                {
-                                    typeof url === 'string' && isValidUrl(url) ? (
-                                    <dd><a href={url} target="_blank" rel="noopener noreferrer">{url}</a></dd>
-                                    ) : (
-                                        <dd>{url}</dd>
-                                    )
-                                }
-                            </div>
+                        typeof url === 'string' && isValidUrl(url) ? (
+                        <dd><a href={url} target="_blank" rel="noopener noreferrer">{url}</a></dd>
+                        ) : (
+                            <dd>{url}</dd>
                         )
                     }
-                    {
-                        role && (
-                            <div>
-                            <dt>担当フェーズ</dt>
-                            <dd>
-                                <ul>
-                                {
-                                    role.map((tool) =>
-                                        <li>{tool}</li>
-                                    )
-                                }
-                                </ul>
-                            </dd>
-                            </div>
-                        )
-                    }
-                    {
-                        techstack && techstack?.length > 0 && (
-                            <div>
-                                <dt>技術スタック</dt>
-                                <dd>
-                                    <ul class="pl-5 list-disc">
-                                    {
-                                        techstack.map((tool) =>
-                                            <li>{tool}</li>
-                                        )
-                                    }
-                                    </ul>
-                                </dd>
-                            </div>
-                        )
-                    }
-                    {
-                        tools && tools?.length > 0 && (
-                            <div>
-                                <dt>使用ツール</dt>
-                                <dd>
-                                    <ul class="pl-5 list-disc">
-                                    {
-                                        tools.map((tool) =>
-                                            <li>{tool}</li>
-                                        )
-                                    }
-                                    </ul>
-                                </dd>
-                            </div>
-                        )
-                    }
+                </div>
+                )
+                }
+                {
+                    role && (
+                        <div>
+                        <dt>担当フェーズ</dt>
+                        <dd>
+                            <ul>
+                            {
+                                role.map((tool) =>
+                                    <li>{tool}</li>
+                                )
+                            }
+                            </ul>
+                        </dd>
+                        </div>
+                    )
+                }
+                {
+                techstack && techstack?.length > 0 && (
+                    <div>
+                        <dt>技術スタック</dt>
+                        <dd>
+                            <ul class="pl-5 list-disc">
+                            {
+                                techstack.map((tool) =>
+                                    <li>{tool}</li>
+                                )
+                            }
+                            </ul>
+                        </dd>
+                    </div>
+                )
+                }
+                {
+                tools && tools?.length > 0 && (
+                    <div>
+                        <dt>使用ツール</dt>
+                        <dd>
+                            <ul class="pl-5 list-disc">
+                            {
+                                tools.map((tool) =>
+                                    <li>{tool}</li>
+                                )
+                            }
+                            </ul>
+                        </dd>
+                    </div>
+                )
+                }
                 </dl>
                 <div class="p-project__detail">
                     <slot />
