@@ -7,8 +7,8 @@ interface Props {
     entrydata: {
         title: string;
         category: string[];
-        thumbnail?: string;
-        images?: string[];
+        thumbnail?: ImageMetadata;
+        images?: ImageMetadata[];
         imageslayout?: string[];
         url?: string | '非公開' | '準備中' | '公開終了';
         role?: string[];
@@ -161,9 +161,11 @@ const jsfiles = entrydata.jsfiles;
             </div>
         </main>
         <Footer />
+        <Fragment slot="bodyEnd">
         {Array.isArray(jsfiles) && jsfiles.length > 0 && jsfiles.map(src => (
             <script src={src} defer></script>
         ))}
+        </Fragment>
     </body>
 </html>
 

@@ -1,7 +1,5 @@
 ---
-import HeaderContent from '../components/HeaderContent.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import BaseLayout from '../layout/BaseLayout.astro';
 
 import Mainvisual from '../components/Mainvisual.astro';
 import About from '../components/About.astro';
@@ -33,21 +31,11 @@ const publishEntries: typeof projectAllEntries = projectAllEntries
 	return a.slug.localeCompare(b.slug);
 });
 ---
-
-<html lang="ja">
-	<head>
-		<HeaderContent />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<Mainvisual />
-			<div class="l-mainContents">
-				<About />
-				<Skills />
-				<Projectlist items={publishEntries} />
-			</div>
-		</main>
-		<Footer />
-	</body>
-</html>
+<BaseLayout>
+	<Mainvisual />
+	<div class="l-mainContents">
+		<About />
+		<Skills />
+		<Projectlist items={publishEntries} />
+	</div>
+</BaseLayout>
