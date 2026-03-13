@@ -16,9 +16,9 @@ function toAnchor(id: string): string {
     const getHeaderOffset = () => {
         const baseRem = 16;
         const winWidth = window.innerWidth;
-        const min = 6 * baseRem;
+        const min = 6 * baseRem; // 最小右上ロゴサイズ（6rem)
         const val = 5.33 * baseRem + (3.33 / 100) * winWidth;
-        const max = 8 * baseRem;
+        const max = 8 * baseRem; // 最大右上ロゴサイズ（8rem)
         const buffer = winWidth > 768 ? 20 : 10;
 
         return (Math.min(Math.max(val, min), max) / 2) + buffer;
@@ -36,6 +36,7 @@ function toAnchor(id: string): string {
 
             const current = menuCtrlButton.getAttribute('aria-expanded') === 'false';
             current ? menuCtrlButton?.setAttribute('aria-expanded', 'true') : menuCtrlButton?.setAttribute('aria-expanded', 'false');
+            current ? menuCtrlButton?.setAttribute('aria-label', 'メニューを閉じる') : menuCtrlButton?.setAttribute('aria-label', 'メニューを開く');
         });
 
         // スクロール
@@ -55,7 +56,7 @@ function toAnchor(id: string): string {
                 // メニューを閉じる
                 nav?.classList.toggle('isActive');
                 menuCtrlButton?.classList.toggle('isActive');
-                menuCtrlButton.setAttribute('aria-expanded', 'false');
+                menuCtrlButton?.setAttribute('aria-expanded', 'false');
             });
         });
 
@@ -104,21 +105,21 @@ function toAnchor(id: string): string {
 
 <header class="header" id="header">
     <div class="header__logo">
-        {
-            isTop ? (
-                <h1 class="header__text"><span>KOMATA</span> <span>Mayumi</span> <span>Portfolio</span></h1>
-            ) : (
-                <a href="/" class="header__text"><span>KOMATA</span> <span>Mayumi</span> <span>Portfolio</span></a>
-            )
-        }
+    {
+    isTop ? (
+        <h1 class="header__text"><span>KOMATA</span> <span>Mayumi</span> <span>Portfolio</span></h1>
+    ) : (
+        <a href="/" class="header__text"><span>KOMATA</span> <span>Mayumi</span> <span>Portfolio</span></a>
+    )
+    }
     </div>
-    <button type="button" id="menuCtrl" class="header_controlbutton" aria-label="メニューを開く" aria-expanded="false" aria-controls="menu" aria-hidden="false">
+    <button type="button" id="menuCtrl" class="header_controlbutton" aria-label="メニューを開く" aria-expanded="false" aria-controls="menu">
         <span></span>
     </button>
     <nav class="header__nav" id="nav" aria-label="メインメニュー">
         <ul class="header__menu" id="menu">
             {
-                !isTop && <li><a href="/">トップページ</a></li>
+            !isTop && <li><a href="/">トップページ</a></li>
             }
             <li><a href={toAnchor("about")}>自己紹介</a></li>
             <li><a href={toAnchor("skills")}>スキル</a></li>
