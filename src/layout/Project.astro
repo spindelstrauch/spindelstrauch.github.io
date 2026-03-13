@@ -7,9 +7,10 @@ interface Props {
     entrydata: {
         title: string;
         category: string[];
+        detail: string;
         thumbnail?: ImageMetadata;
         images?: ImageMetadata[];
-        imageslayout?: string[];
+        imageslayout?: string;
         url?: string | '非公開' | '準備中' | '公開終了';
         role?: string[];
         tools?: string[];
@@ -48,10 +49,10 @@ const jsfiles = entrydata.jsfiles;
 
 <html lang="ja">
     <head>
-        <HeaderContent title={title} />
+        <HeaderContent title={title} description={entrydata.detail} />
         {Array.isArray(stylesheets) && stylesheets.length > 0 && (
             stylesheets.map((href) => (
-                <link rel="stylesheet" href={href} key={href} />
+                <link rel="stylesheet" href={href} />
             ))
         )}
     </head>
