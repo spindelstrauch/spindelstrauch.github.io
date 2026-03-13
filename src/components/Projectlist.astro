@@ -29,7 +29,7 @@ const { items } = Astro.props;
                             src={item.data.thumbnail.src}
                             width={item.data.thumbnail.width}
                             height={item.data.thumbnail.height}
-                            alt={`${item.data.title}イメージ`}
+                            alt=""
                             loading="lazy"
                         />
                     </div>
@@ -40,7 +40,7 @@ const { items } = Astro.props;
 						)
 					}
                     </ul>
-                    <h3 class="p-projectList__title">{item.data.title}</h3>
+                    <p class="p-projectList__title">{item.data.title}</p>
                 </a>
             </li>
         ))
