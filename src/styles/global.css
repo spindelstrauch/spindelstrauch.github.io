@@ -173,26 +173,3 @@ img {
   margin-top: 0 !important;
   margin-bottom: 0 !important;
 }
-
-/*
-  Utility
-*/
-
-/* Utility - device */
-.u-forPC {
-  display: none;
-}
-
-.u-forSP {
-  display: block;
-}
-
-@media (min-width: 1024px) {
-  .u-forPC {
-    display: block;
-  }
-
-  .u-forSP {
-    display: none;
-  }
-}
