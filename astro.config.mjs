@@ -6,8 +6,6 @@ import relativeLinks from 'astro-relative-links';
 // https://astro.build/config
 export default defineConfig({
   output: 'static',
-  // site: 'https://spindelstrauch.github.io',
-  // base: '/profile-site/',
   integrations: [relativeLinks()],
   compressHTML: false,
   scopedStyleStrategy: 'attribute',
