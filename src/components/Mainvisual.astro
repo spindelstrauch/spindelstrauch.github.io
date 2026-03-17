@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+import mainVisual from "../images/mv_main.png";
 ---
 
 <div class="p-mv">
@@ -7,7 +9,9 @@
 			<h2 class="p-mv__catchCopy">誰かの「困らない」を<br>そっと支える仕事を。</h2>
 			<p class="p-mv__lead">誰もが迷わず使えるように。<br>ほんの小さな工夫や調整を積み重ねて、“当たり前”を支えるものづくりをしています。</p>
 		</hgroup>
-		<div class="p-mv__image"><img src="/images/mv_main.png" alt=""></div>
+		<div class="p-mv__image">
+			<Image src={mainVisual} alt="" />
+			</div>
 		</div>
 	</div>
 </div>
@@ -67,7 +71,7 @@
 		width: 100%;
 		max-width: 320px;
 		height: auto;
-		transform: translateY(50px);
+		transform: translateY(36px);
 	}
 
 	@container (max-width: 767px) {
