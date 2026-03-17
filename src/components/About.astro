@@ -1,10 +1,15 @@
 ---
+import { Image } from "astro:assets";
 
+import icon from "../images/icon.svg";
+import corevalues01 from "../images/img_corevalues01.png";
+import corevalues02 from "../images/img_corevalues02.png";
+import corevalues03 from "../images/img_corevalues03.png";
 ---
 <section class="l-section l-section--about --bg" id="about">
     <div class="l-inner space-y-4">
         <h2 class="c-heading" data-subtext="About Me">自己紹介</h2>
-        <div class="flex justify-center"><img src="/images/icon.svg" alt=""></div>
+        <div class="flex justify-center"><Image src={icon} alt="" /></div>
         <p class="text-center text-lg font-bold mb-10">こまたまゆみ　KOMATA Mayumi</p>
         <p>
         大学卒業後、印刷会社のWeb部門にてマークアップエンジニアとしてキャリアを開始し、その後Web制作会社に勤務。現在は社内情報システム部門と兼務しながらマークアップ業務に従事しています。約20年にわたり、公共施設、EC、保険分野など幅広いWebサイトにおいて、新規構築からリニューアル、運用・保守まで一貫して担当してきました。
@@ -22,21 +27,21 @@
             <h3 class="c-subHeading">得意としていること</h3>
             <ol class="p-corevalues__items">
                 <li class="p-corevalues__item">
-                    <div class="p-corevalues__image"><img src="/images/img_corevalues01.png" alt=""></div>
+                    <div class="p-corevalues__image"><Image src={corevalues01} alt="" /></div>
                     <p class="p-corevalues__heading">ユーザーと運用の両面に<br>配慮した設計・実装</p>
                     <p class="p-corevalues__text">
                         視認性・理解しやすさに加え、運用者にとっても管理・更新しやすい構造を設計。アクセシビリティや保守性も重視した柔軟な実装を心がけています。
                     </p>
                 </li>
                 <li class="p-corevalues__item">
-                    <div class="p-corevalues__image"><img src="/images/img_corevalues02.png" alt=""></div>
+                    <div class="p-corevalues__image"><Image src={corevalues02} alt="" /></div>
                     <p class="p-corevalues__heading">計画、実装から運用まで<br>一貫対応</p>
                     <p class="p-corevalues__text">
                         HTML/CSS/JavaScriptによる実装に加え、要件定義、ワイヤーフレーム作成、サーバー選定、制作進行管理、掲載図版・イラスト作成など、一連の制作工程を一貫して担当した案件もあります。
                     </p>
                 </li>
                 <li class="p-corevalues__item">
-                    <div class="p-corevalues__image"><img src="/images/img_corevalues03.png" alt=""></div>
+                    <div class="p-corevalues__image"><Image src={corevalues03} alt="" /></div>
                     <p class="p-corevalues__heading">クライアント・社内向け<br>ドキュメント作成業務</p>
                     <p class="p-corevalues__text">
                         クライアント向けの更新マニュアルや、社内向けのコーディングガイドの作成など、ナレッジ共有やドキュメント整備も行います。
