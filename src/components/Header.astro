@@ -45,7 +45,9 @@ function toAnchor(id: string): string {
                 e.preventDefault();
 
                 const target = this.getAttribute('href').replace('#', '');
-                const content = document.getElementById(target).getBoundingClientRect().top;
+
+                if (!target) return;
+                const content = document.getElementById(target)?.getBoundingClientRect().top;
                 const pos = setPos(content);
 
                 window.scrollTo({
@@ -113,10 +115,10 @@ function toAnchor(id: string): string {
     )
     }
     </div>
-    <button type="button" id="menuCtrl" class="header_controlbutton" aria-label="メニューを開く" aria-expanded="false" aria-controls="menu">
+    <button type="button" id="menuCtrl" class="header_controlbutton" aria-label="メニューを開く" aria-expanded="false" aria-controls="mainNav">
         <span></span>
     </button>
-    <nav class="header__nav" id="nav" aria-label="メインメニュー">
+    <nav class="header__nav" id="mainNav" aria-label="メインメニュー">
         <ul class="header__menu" id="menu">
             {
             !isTop && <li><a href="/">トップページ</a></li>
