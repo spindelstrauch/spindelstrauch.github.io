@@ -24,7 +24,7 @@ import noImage from "../images/projects/noimage.png"
         {
         items.map((item) => (
             <li class="p-projectList__item">
-                <a href={`/projects/${item.slug}`}>
+                <a href={`/projects/${item.slug}/`}>
                     <div class="p-projectList__thumbnail">
 						{
 							item.data.thumbnail ?
@@ -60,6 +60,17 @@ import noImage from "../images/projects/noimage.png"
         </ul>
     </div>
 </section>
+
+<script>
+	// #region agent log
+	document.addEventListener('DOMContentLoaded', () => {
+		const hrefs = Array.from(document.querySelectorAll('.p-projectList__item a'))
+			.slice(0, 8)
+			.map((a) => a.getAttribute('href'));
+		fetch('http://127.0.0.1:7621/ingest/55606d1f-fa12-41e6-aa94-1f77fbe6bc01',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'e8577f'},body:JSON.stringify({sessionId:'e8577f',runId:'pre-fix',hypothesisId:'C',location:'Projectlist.astro:script',message:'Project link href samples',data:{path:location.pathname,hrefs},timestamp:Date.now()})}).catch(()=>{});
+	});
+	// #endregion
+</script>
 <style>
 	.p-projectList {
 		display: grid;
