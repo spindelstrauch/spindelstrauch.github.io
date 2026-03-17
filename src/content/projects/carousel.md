@@ -4,8 +4,8 @@ order: 4
 title: '運用サイト共通利用を想定したアクセシブルなスライド設計'
 category:
   - コーディング
-detail: '運用サイト共通利用を想定したアクセシブルなスライド設計'
-thumbnail: '/images/projects/carousel/thumbnail.png'
+detail: '複数のサイトでの共通利用を想定したアクセシブルなスライドの制作事例です。'
+thumbnail: '../../images//projects/carousel/thumbnail.png'
 role:
   - 'ヒアリング・要件整理'
   - '実装方針の検討（アクセシビリティ要件を踏まえた技術選定）'
@@ -59,7 +59,7 @@ jsfiles:
               <li class="swiper-slide" role="presentation">
                 <button type="button" role="tab" aria-controls="carousel-item-1-1" class="p-carousel__thumbnail">
                   <span class="p-carousel__thumbnail-inner">
-                    <span class="c-carousel__thumbnail-image"><img src="/images/projects/carousel/thumb-1.jpg" alt="" /></span>
+                    <span class="c-carousel__thumbnail-image"><img src="/images/projects/carousel/thumb-1.jpg" width="40" height="40" alt="" /></span>
                     <span class="c-carousel__thumbnail-heading">Slide1</span>
                     <span class="c-carousel__thumbnail-summary">UnsplashのJakob Owensが撮影した写真</span>
                   </span>
@@ -68,7 +68,7 @@ jsfiles:
               <li class="swiper-slide" role="presentation">
                 <button type="button" role="tab" aria-controls="carousel-item-1-2" class="p-carousel__thumbnail">
                   <span class="p-carousel__thumbnail-inner">
-                    <span class="c-carousel__thumbnail-image"><img src="/images/projects/carousel/thumb-2.jpg" alt="" /></span>
+                    <span class="c-carousel__thumbnail-image"><img src="/images/projects/carousel/thumb-2.jpg" width="40" height="40" alt="" /></span>
                     <span class="c-carousel__thumbnail-heading">Slide2</span>
                     <span class="c-carousel__thumbnail-summary">Unsplashのzero takeが撮影した写真</span>
                   </span>
@@ -77,7 +77,7 @@ jsfiles:
               <li class="swiper-slide" role="presentation">
                 <button type="button" role="tab" aria-controls="carousel-item-1-3" class="p-carousel__thumbnail">
                   <span class="p-carousel__thumbnail-inner">
-                    <span class="c-carousel__thumbnail-image"><img src="/images/projects/carousel/thumb-3.jpg" alt="" /></span>
+                    <span class="c-carousel__thumbnail-image"><img src="/images/projects/carousel/thumb-3.jpg" width="40" height="40" alt="" /></span>
                     <span class="c-carousel__thumbnail-heading">Slide3</span>
                     <span class="c-carousel__thumbnail-summary">UnsplashのBharath Kumarが撮影した写真</span>
                   </span>
@@ -86,7 +86,7 @@ jsfiles:
               <li class="swiper-slide" role="presentation">
                 <button type="button" role="tab" aria-controls="carousel-item-1-4" class="p-carousel__thumbnail">
                   <span class="p-carousel__thumbnail-inner">
-                    <span class="c-carousel__thumbnail-image"><img src="/images/projects/carousel/thumb-4.jpg" alt="" /></span>
+                    <span class="c-carousel__thumbnail-image"><img src="/images/projects/carousel/thumb-4.jpg" width="40" height="40" alt="" /></span>
                     <span class="c-carousel__thumbnail-heading">Slide4</span>
                     <span class="c-carousel__thumbnail-summary">UnsplashのJanosch Diggelmannが撮影した写真</span>
                   </span>
@@ -131,7 +131,7 @@ jsfiles:
               <picture class="c-carousel__items-image">
                 <source media="(max-width:767px)" srcset="/images/projects/carousel/image1_s.jpg 340w" sizes="100vw" />
                 <source media="(min-width:768px)" srcset="/images/projects/carousel/image1_l.jpg 1440w" sizes="(max-width:1440px) 100vw, 1440px" />
-                <img src="/images/projects/carousel/image1_l.jpg" alt="UnsplashのJakob Owensが撮影した写真" />
+                <img src="/images/projects/carousel/image1_l.jpg" width="1440" height="664" alt="UnsplashのJakob Owensが撮影した写真" />
               </picture>
             </a>
           </div>
@@ -142,7 +142,7 @@ jsfiles:
               <picture class="c-carousel__items-image">
                 <source media="(max-width:767px)" srcset="/images/projects/carousel/image2_s.jpg 340w" sizes="100vw" />
                 <source media="(min-width:768px)" srcset="/images/projects/carousel/image2_l.jpg 1440w" sizes="(max-width:1440px) 100vw, 1440px" />
-                <img src="/images/projects/carousel/image2_l.jpg" alt="Unsplashのzero takeが撮影した写真" />
+                <img src="/images/projects/carousel/image2_l.jpg" width="1440" height="664" alt="Unsplashのzero takeが撮影した写真" />
               </picture>
             </a>
           </div>
@@ -153,7 +153,7 @@ jsfiles:
               <picture class="c-carousel__items-image">
                 <source media="(max-width:767px)" srcset="/images/projects/carousel/image3_s.jpg 340w" sizes="100vw" />
                 <source media="(min-width:768px)" srcset="/images/projects/carousel/image3_l.jpg 1440w" sizes="(max-width:1440px) 100vw, 1440px" />
-                <img src="/images/projects/carousel/image3_l.jpg" alt="UnsplashのBharath Kumarが撮影した写真" />
+                <img src="/images/projects/carousel/image3_l.jpg" width="1440" height="664" alt="UnsplashのBharath Kumarが撮影した写真" />
               </picture>
             </a>
           </div>
@@ -167,7 +167,7 @@ jsfiles:
               </p>
               <div class="p-slide4__link"><a href="#" class="c-slide-button c-button--white">Link Button</a></div>
             </div>
-            <div class="p-slide4__image"><img src="/images/projects/carousel/image4_l.jpg" alt="" /></div>
+            <div class="p-slide4__image"><img src="/images/projects/carousel/image4_l.jpg" width="715" height="664" alt="" /></div>
           </div>
         </div>
       </div>
@@ -207,7 +207,7 @@ jsfiles:
               <li class="swiper-slide" role="presentation">
                 <button type="button" role="tab" aria-controls="carousel-item-2-1" class="p-carousel__thumbnail">
                   <span class="p-carousel__thumbnail-inner">
-                    <span class="c-carousel__thumbnail-image"><img src="/images/projects/carousel/thumb-1.jpg" alt="" /></span>
+                    <span class="c-carousel__thumbnail-image"><img src="/images/projects/carousel/thumb-1.jpg" width="40" height="40" alt="" /></span>
                     <span class="c-carousel__thumbnail-heading">Slide1</span>
                     <span class="c-carousel__thumbnail-summary">UnsplashのJakob Owensが撮影した写真</span>
                   </span>
@@ -216,7 +216,7 @@ jsfiles:
               <li class="swiper-slide" role="presentation">
                 <button type="button" role="tab" aria-controls="carousel-item-2-2" class="p-carousel__thumbnail">
                   <span class="p-carousel__thumbnail-inner">
-                    <span class="c-carousel__thumbnail-image"><img src="/images/projects/carousel/thumb-2.jpg" alt="" /></span>
+                    <span class="c-carousel__thumbnail-image"><img src="/images/projects/carousel/thumb-2.jpg" width="40" height="40" alt="" /></span>
                     <span class="c-carousel__thumbnail-heading">Slide2</span>
                     <span class="c-carousel__thumbnail-summary">Unsplashのzero takeが撮影した写真</span>
                   </span>
@@ -225,7 +225,7 @@ jsfiles:
               <li class="swiper-slide" role="presentation">
                 <button type="button" role="tab" aria-controls="carousel-item-2-3" class="p-carousel__thumbnail">
                   <span class="p-carousel__thumbnail-inner">
-                    <span class="c-carousel__thumbnail-image"><img src="/images/projects/carousel/thumb-3.jpg" alt="" /></span>
+                    <span class="c-carousel__thumbnail-image"><img src="/images/projects/carousel/thumb-3.jpg" width="40" height="40" alt="" /></span>
                     <span class="c-carousel__thumbnail-heading">Slide3</span>
                     <span class="c-carousel__thumbnail-summary">UnsplashのBharath Kumarが撮影した写真</span>
                   </span>
@@ -234,7 +234,7 @@ jsfiles:
               <li class="swiper-slide" role="presentation">
                 <button type="button" role="tab" aria-controls="carousel-item-2-4" class="p-carousel__thumbnail">
                   <span class="p-carousel__thumbnail-inner">
-                    <span class="c-carousel__thumbnail-image"><img src="/images/projects/carousel/thumb-4.jpg" alt="" /></span>
+                    <span class="c-carousel__thumbnail-image"><img src="/images/projects/carousel/thumb-4.jpg" width="40" height="40" alt="" /></span>
                     <span class="c-carousel__thumbnail-heading">Slide4</span>
                     <span class="c-carousel__thumbnail-summary">UnsplashのJanosch Diggelmannが撮影した写真</span>
                   </span>
@@ -279,7 +279,7 @@ jsfiles:
               <picture class="c-carousel__items-image">
                 <source media="(max-width:767px)" srcset="/images/projects/carousel/image1_s.jpg 340w" sizes="100vw" />
                 <source media="(min-width:768px)" srcset="/images/projects/carousel/image1_l.jpg 1440w" sizes="(max-width:1440px) 100vw, 1440px" />
-                <img src="/images/projects/carousel/image1_l.jpg" alt="UnsplashのJakob Owensが撮影した写真" />
+                <img src="/images/projects/carousel/image1_l.jpg" width="1440" height="664" alt="UnsplashのJakob Owensが撮影した写真" />
               </picture>
             </a>
           </div>
@@ -290,7 +290,7 @@ jsfiles:
               <picture class="c-carousel__items-image">
                 <source media="(max-width:767px)" srcset="/images/projects/carousel/image2_s.jpg 340w" sizes="100vw" />
                 <source media="(min-width:768px)" srcset="/images/projects/carousel/image2_l.jpg 1440w" sizes="(max-width:1440px) 100vw, 1440px" />
-                <img src="/images/projects/carousel/image2_l.jpg" alt="Unsplashのzero takeが撮影した写真" />
+                <img src="/images/projects/carousel/image2_l.jpg" width="1440" height="664" alt="Unsplashのzero takeが撮影した写真" />
               </picture>
             </a>
           </div>
@@ -301,7 +301,7 @@ jsfiles:
               <picture class="c-carousel__items-image">
                 <source media="(max-width:767px)" srcset="/images/projects/carousel/image3_s.jpg 340w" sizes="100vw" />
                 <source media="(min-width:768px)" srcset="/images/projects/carousel/image3_l.jpg 1440w" sizes="(max-width:1440px) 100vw, 1440px" />
-                <img src="/images/projects/carousel/image3_l.jpg" alt="UnsplashのBharath Kumarが撮影した写真" />
+                <img src="/images/projects/carousel/image3_l.jpg" width="1440" height="664" alt="UnsplashのBharath Kumarが撮影した写真" />
               </picture>
             </a>
           </div>
@@ -315,7 +315,7 @@ jsfiles:
               </p>
               <div class="p-slide4__link"><a href="#" class="c-slide-button c-button--white">Link Button</a></div>
             </div>
-            <div class="p-slide4__image"><img src="/images/projects/carousel/image4_l.jpg" alt="" /></div>
+            <div class="p-slide4__image"><img src="/images/projects/carousel/image4_l.jpg" width="715" height="664" alt="" /></div>
           </div>
         </div>
       </div>

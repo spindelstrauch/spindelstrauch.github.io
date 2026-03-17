@@ -4,8 +4,8 @@ order: 5
 title: '社内業務効率化のための雇用契約書自動生成ツールの設計・実装'
 category:
   - ツール開発
-detail: 'Googleスプレッドシートに情報を記入することで、自動で雇用契約書書類を作成するツール'
-thumbnail: '/images/projects/employment_contract/fig_scope.png'
+detail: 'Googleスプレッドシートに情報を記入することで、自動で雇用契約書書類を作成するツールの制作事例です。'
+thumbnail: '../../images/projects/employment_contract/fig_scope.png'
 role:
   - 'ヒアリング・要件整理'
   - 'Googleスプレッドシートによるテンプレート設計'
@@ -54,8 +54,8 @@ Google スプレッドシートに登録された情報をもとに、Google ド
 
 <figure class="mx-auto my-8">
 <picture>
-<source srcset="/images/projects/employment_contract/fig_scope_sp.png" media="(max-width: 768px)" />
-<img src="/images/projects/employment_contract/fig_scope.png" alt="雇用内容リストに運用中のスプレッドシートから情報を連携する。(1)雇用内容リストに書類生成に必要な情報を記入し、スプレッドシートからGoogle App Scriptを実行。(2)Google App ScriptでGoogleドキュメント形式で作成した書類のテンプレートファイルを複製。(3)複製したファイルに変数と対応した情報を流し込み、雇用契約書ファイルを生成。(4)必要に応じて雇用契約書PDFを生成。" />
+<source srcset="/images/projects/employment_contract/fig_scope_sp.png" width="851" height="961" media="(max-width: 768px)" />
+<img src="/images/projects/employment_contract/fig_scope.png" width="983" height="483" alt="雇用内容リストに運用中のスプレッドシートから情報を連携する。(1)雇用内容リストに書類生成に必要な情報を記入し、スプレッドシートからGoogle App Scriptを実行。(2)Google App ScriptでGoogleドキュメント形式で作成した書類のテンプレートファイルを複製。(3)複製したファイルに変数と対応した情報を流し込み、雇用契約書ファイルを生成。(4)必要に応じて雇用契約書PDFを生成。" />
 </picture>
 <figcaption class="text-center mt-2">書類生成のイメージ図</figcaption>
 </figure>

@@ -3,9 +3,10 @@ draft: false
 order: 1
 title: 'Astroを活用した静的LPの設計・実装'
 category:
-  - Webサイト制作
-detail: 'Astroを活用した静的LPの設計・実装'
-thumbnail: '/images/projects/astro/astro.jpg'
+  - Astro
+  - コーディング
+detail: '運用性と制作効率の両立を目的として、ファッション系ECサイトのLPの制作に、Webサイトフレームワークの「Astro」を利用した事例です。'
+thumbnail: '../../images/projects/astro/astro.jpg'
 role:
   - 'コーディング'
 techstack:

@@ -3,8 +3,22 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import HeaderContent from "../components/HeaderContent.astro";
 
-import '@fontsource/zen-maru-gothic/400.css';
-import '@fontsource-variable/quicksand';
+interface Props {
+    entrydata: {
+        title: string;
+        category: string[];
+        detail: string;
+        thumbnail?: ImageMetadata;
+        images?: ImageMetadata[];
+        imageslayout?: string;
+        url?: string | '非公開' | '準備中' | '公開終了';
+        role?: string[];
+        tools?: string[];
+        techstack?: string[];
+        stylesheets?: string[];
+        jsfiles?: string[];
+    };
+}
 
 const { entrydata } = Astro.props;
 
@@ -35,10 +49,10 @@ const jsfiles = entrydata.jsfiles;
 
 <html lang="ja">
     <head>
-        <HeaderContent title={title} />
+        <HeaderContent title={title} description={entrydata.detail} />
         {Array.isArray(stylesheets) && stylesheets.length > 0 && (
             stylesheets.map((href) => (
-                <link rel="stylesheet" href={href} key={href} />
+                <link rel="stylesheet" href={href} />
             ))
         )}
     </head>
@@ -59,77 +73,85 @@ const jsfiles = entrydata.jsfiles;
                 {
                      images && (
                         <div class={`mt-20 ${entrydata.imageslayout}`}>
-                            {
-                                images.map((item) => (
-                                    <div><img src={item} alt={`${title}イメージ`} loading="lazy" /></div>
-                                ))
-                            }
+                        {
+                        images.map((item) => (
+                            <div>
+                                <img
+                                    src={item.src}
+                                    width={item.width}
+                                    height={item.height}
+                                    alt={`${title}イメージ`}
+                                    loading="lazy"
+                                />
+                            </div>
+                        ))
+                        }
                         </div>
                      )
                 }
                 <dl class="p-project__summary">
+                {
+                url && (
+                <div>
+                    <dt>URL</dt>
                     {
-                        url && (
-                            <div>
-                                <dt>URL</dt>
-                                {
-                                    typeof url === 'string' && isValidUrl(url) ? (
-                                    <dd><a href={url} target="_blank" rel="noopener noreferrer">{url}</a></dd>
-                                    ) : (
-                                        <dd>{url}</dd>
-                                    )
-                                }
-                            </div>
+                        typeof url === 'string' && isValidUrl(url) ? (
+                        <dd><a href={url} target="_blank" rel="noopener noreferrer">{url}</a></dd>
+                        ) : (
+                            <dd>{url}</dd>
                         )
                     }
-                    {
-                        role && (
-                            <div>
-                            <dt>担当フェーズ</dt>
-                            <dd>
-                                <ul>
-                                {
-                                    role.map((tool) =>
-                                        <li>{tool}</li>
-                                    )
-                                }
-                                </ul>
-                            </dd>
-                            </div>
-                        )
-                    }
-                    {
-                        techstack && techstack?.length > 0 && (
-                            <div>
-                                <dt>技術スタック</dt>
-                                <dd>
-                                    <ul class="pl-5 list-disc">
-                                    {
-                                        techstack.map((tool) =>
-                                            <li>{tool}</li>
-                                        )
-                                    }
-                                    </ul>
-                                </dd>
-                            </div>
-                        )
-                    }
-                    {
-                        tools && tools?.length > 0 && (
-                            <div>
-                                <dt>使用ツール</dt>
-                                <dd>
-                                    <ul class="pl-5 list-disc">
-                                    {
-                                        tools.map((tool) =>
-                                            <li>{tool}</li>
-                                        )
-                                    }
-                                    </ul>
-                                </dd>
-                            </div>
-                        )
-                    }
+                </div>
+                )
+                }
+                {
+                    role && (
+                        <div>
+                        <dt>担当フェーズ</dt>
+                        <dd>
+                            <ul>
+                            {
+                                role.map((tool) =>
+                                    <li>{tool}</li>
+                                )
+                            }
+                            </ul>
+                        </dd>
+                        </div>
+                    )
+                }
+                {
+                techstack && techstack?.length > 0 && (
+                    <div>
+                        <dt>技術スタック</dt>
+                        <dd>
+                            <ul class="pl-5 list-disc">
+                            {
+                                techstack.map((tool) =>
+                                    <li>{tool}</li>
+                                )
+                            }
+                            </ul>
+                        </dd>
+                    </div>
+                )
+                }
+                {
+                tools && tools?.length > 0 && (
+                    <div>
+                        <dt>使用ツール</dt>
+                        <dd>
+                            <ul class="pl-5 list-disc">
+                            {
+                                tools.map((tool) =>
+                                    <li>{tool}</li>
+                                )
+                            }
+                            </ul>
+                        </dd>
+                    </div>
+                )
+                }
                 </dl>
                 <div class="p-project__detail">
                     <slot />
@@ -140,9 +162,11 @@ const jsfiles = entrydata.jsfiles;
             </div>
         </main>
         <Footer />
+        <Fragment slot="bodyEnd">
         {Array.isArray(jsfiles) && jsfiles.length > 0 && jsfiles.map(src => (
             <script src={src} defer></script>
         ))}
+        </Fragment>
     </body>
 </html>
 
@@ -192,8 +216,12 @@ const jsfiles = entrydata.jsfiles;
         font-family: var(--font-heading);
 	}
 
+    .p-project__category {
+        margin-bottom: 1.5rem;
+    }
+
     .p-project__summary {
-        margin-top: 5rem;
+        margin-top: 6rem;
 
         dt {
             color: var(--sub-color);
@@ -205,7 +233,7 @@ const jsfiles = entrydata.jsfiles;
         }
 
         div + div {
-            margin-top: 2rem;
+            margin-top: 3rem;
         }
     }
 
@@ -215,10 +243,10 @@ const jsfiles = entrydata.jsfiles;
         border-top: 1px solid #E6EAEE;
 
         > h2 {
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
             position: relative;
             padding-bottom: 10px;
-            font-size: 1.5rem;
+            font-size: var(--size-sl);
             font-family: var(--font-heading);
             font-weight: bold;
             text-align: center;
@@ -238,31 +266,31 @@ const jsfiles = entrydata.jsfiles;
         }
 
         * + h2 {
-            margin-top: 7rem;
+            margin-top: 9rem;
         }
 
         h3 {
-            margin-bottom: 0.5em;
+            margin-bottom: 1.5em;
             font-weight: bold;
-            font-size: 1.125rem;
+            font-size: var(--size-sm);
         }
 
         * + h3 {
-            margin-top: 3rem;
+            margin-top: 4.5rem;
         }
 
         > p + p {
-            margin-top: 1rem;
+            margin-top: 1.5rem;
         }
 
         ul {
-            margin: 2rem 0;
+            margin: 1.5rem 0;
             list-style: disc;
             padding-left: 2rem;
         }
 
         ul ul {
-            margin: 0.3rem 0 1rem;
+            margin: 0.5rem 0 1.5rem;
         }
 
         ul > li + li {
@@ -270,7 +298,7 @@ const jsfiles = entrydata.jsfiles;
         }
 
         ul ul > li + li {
-            margin-top: 0.3em;
+            margin-top: 0.5em;
         }
 
         a {
