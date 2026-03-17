@@ -15,6 +15,7 @@ interface Props {
 }
 
 const { items } = Astro.props;
+import noImage from "../images/projects/noimage.png"
 ---
 <section class="l-section l-section--project --bg" id="project">
     <div class="l-inner">
@@ -25,13 +26,24 @@ const { items } = Astro.props;
             <li class="p-projectList__item">
                 <a href={`/projects/${item.slug}`}>
                     <div class="p-projectList__thumbnail">
-                        <img
-                            src={item.data.thumbnail.src}
-                            width={item.data.thumbnail.width}
-                            height={item.data.thumbnail.height}
-                            alt=""
-                            loading="lazy"
-                        />
+						{
+							item.data.thumbnail ?
+							<img
+								src={item.data.thumbnail.src}
+								width={item.data.thumbnail.width}
+								height={item.data.thumbnail.height}
+								alt=""
+								loading="lazy"
+							/>
+							:
+							<img
+								src={noImage.src}
+								width={noImage.width}
+								height={noImage.height}
+								alt=""
+								loading="lazy"
+							/>
+						}
                     </div>
                     <ul class="p-projectList__category c-tags">
 					{
