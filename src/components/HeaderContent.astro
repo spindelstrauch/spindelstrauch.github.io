@@ -1,14 +1,39 @@
 ---
-const { title } = Astro.props;
+interface Props {
+    title?: string;
+    description?: string;
+}
 
+const { title, description } = Astro.props;
+
+// title
 const siteName = 'KOMATA Mayumi Portfolio';
+const pageUrl = Astro.url.href;
 const isTop = Astro.url.pathname === '/';
 const fullTitle = isTop ? siteName : `${title} | ${siteName}`;
+
+// description
+const defaultDescription = 'Webサイト制作におけるフロントエンド実装・マークアップを中心としたポートフォリオです。コーディング、CMS実装など、これまで担当したプロジェクトを紹介しています。';
+const metaDescription = description || defaultDescription;
+
+// OGP
+const canonicalURL = new URL(Astro.url.pathname, 'https://spindelstrauch.github.io/');
+const ogpImageURL = new URL('/images/ogp.png', canonicalURL);
+
 ---
 
 <meta charset="utf-8" />
 <link rel="icon" type="image/svg+xml" href="/images/icon.svg" />
-<meta name="viewport" content="width=device-width" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content={Astro.generator} />
-<meta name="robots" content="noindex" />
+<meta name="robots" content="noindex, nofollow, noarchive" />
 <title>{fullTitle}</title>
+<meta name="description" content={metaDescription}>
+<link rel="canonical" href={`${pageUrl}`} />
+<meta property="og:locale" content="ja_JP">
+<meta property="og:type" content="website" />
+<meta property="og:url" content={`${pageUrl}`} />
+<meta property="og:site_name" content={siteName} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={metaDescription} />
+<meta property="og:image" content={ogpImageURL} />

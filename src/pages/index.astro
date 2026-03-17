@@ -1,28 +1,22 @@
 ---
-import HeaderContent from '../components/HeaderContent.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import BaseLayout from '../layout/BaseLayout.astro';
 
 import Mainvisual from '../components/Mainvisual.astro';
-import About from '../components/Top_about.astro';
+import About from '../components/About.astro';
 import Skills from '../components/Skills.astro';
+import Projectlist from '../components/Projectlist.astro';
 
 import '../styles/global.css';
-import '@fontsource/zen-maru-gothic/400.css';
-import '@fontsource-variable/quicksand';
 
 import { getCollection } from 'astro:content';
-const projectAllEntries = await getCollection('projects');
 
 // 下書きを除外＆並び順調整
-const publishEntries = projectAllEntries
+const projectAllEntries = await getCollection('projects');
+const publishEntries: typeof projectAllEntries = projectAllEntries
 .filter(
 	(post) => !post.data.draft
 )
 .sort((a, b) => {
-	if (!a) return 1;
-	if (!b) return -1;
-
 	const orderA = a.data?.order ?? Infinity;
 	const orderB = b.data?.order ?? Infinity;
 
@@ -35,98 +29,11 @@ const publishEntries = projectAllEntries
 	return a.slug.localeCompare(b.slug);
 });
 ---
-
-<html lang="ja">
-	<head>
-		<HeaderContent />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<Mainvisual />
-			<div class="l-mainContents">
-				<About />
-				<Skills />
-				<section class="l-section l-section--project --bg" id="project">
-					<div class="l-inner">
-						<h2 class="c-heading" data-subtext="Browse My Recent Projects">制作物</h2>
-						<ul class="p-projectList">
-							{
-								publishEntries.map((projectPostEntry) => (
-									<li class="p-projectList__item">
-										<a href={`/projects/${projectPostEntry.slug}`}>
-											<div class="p-projectList__thumbnail"><img src={projectPostEntry.data.thumbnail} alt="" /></div>
-											<ul class="p-projectList__category c-tags">
-												{
-													projectPostEntry.data.category.map((cat) =>
-														<li>{cat}</li>
-													)
-												}
-											</ul>
-											<h3 class="p-projectList__title">{projectPostEntry.data.title}</h3>
-										</a>
-									</li>
-								))
-							}
-						</ul>
-					</div>
-				</section>
-			</div>
-		</main>
-		<Footer />
-	</body>
-</html>
-<style>
-	.p-projectList {
-		display: grid;
-		gap: 5.55vw 2rem;
-	}
-
-	@media (min-width: 768px) {
-		.p-projectList {
-			grid-template-columns: repeat(2, minmax(0, 1fr));
-			gap: 2rem;
-		}
-	}
-
-	.p-projectList__item {
-		display: flex;
-		grid-template-row: subgrid;
-		grid-row: span 3;
-	}
-
-	.p-projectList__thumbnail {
-		border-radius: 10px 10px 0 0;
-		overflow: hidden;
-	}
-
-	.p-projectList__thumbnail img {
-		aspect-ratio: 16 / 9;
-		object-fit: cover;
-	}
-
-	.p-projectList__item a {
-		position: relative;
-		top: 0;
-		background: #fff;
-		border-radius: 10px;
-		border: 1px solid rgba(75,99,120,18%);
-		box-shadow: 0 4px 0 rgba(75,99,120,18%);
-		transition: 0.2s ease;
-	}
-
-	.p-projectList__item a:hover {
-		transform: translateY(4px);
-		box-shadow: none;
-	}
-
-	.p-projectList__category {
-		padding: 1rem 1rem 0;
-	}
-
-	.p-projectList__title {
-		padding: 0 1rem 1rem;
-		font-size: var(--size-sm);
-		font-weight: bold;
-	}
-</style>
+<BaseLayout>
+	<Mainvisual />
+	<div class="l-mainContents">
+		<About />
+		<Skills />
+		<Projectlist items={publishEntries} />
+	</div>
+</BaseLayout>

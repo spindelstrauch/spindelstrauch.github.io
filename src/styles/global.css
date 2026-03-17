@@ -1,5 +1,8 @@
 @import 'tailwindcss';
 
+/*
+  Variables
+*/
 :root {
   --main-color: #4b6378;
   --sub-color: #5d96d4;
@@ -25,6 +28,9 @@
   --font-heading: 'Quicksand Variable', 'Zen Maru Gothic', sans-serif;
 }
 
+/*
+  Base
+*/
 body {
   margin: 0;
   padding: 0;
@@ -37,7 +43,11 @@ img {
   height: auto;
 }
 
+/*
+  Layout
+*/
 .l-section {
+  container-type: inline-size;
   padding: 5rem 0;
 }
 
@@ -52,12 +62,20 @@ img {
   padding-inline: max(2vw, var(--size-sl));
 }
 
+.l-section > * + p {
+  margin-top: 1rem;
+}
+
 @media screen and (min-width: 896px) {
   .l-section > .l-inner {
     padding: 0;
   }
 }
 
+/*
+  Component
+*/
+/* Component - Heading */
 .c-heading {
   margin-bottom: var(--size-mm);
   font-size: var(--size-ms);
@@ -76,6 +94,7 @@ img {
   text-transform: uppercase;
 }
 
+/* Component - subHeading */
 .c-subHeading {
   position: relative;
   padding-bottom: var(--size-ss);
@@ -98,15 +117,13 @@ img {
   border-radius: 50rem;
 }
 
-.l-section > * + p {
-  margin-top: 1rem;
-}
-
+/* Component - Hightlight */
 .c-highlight {
   font-weight: bold;
   background-image: linear-gradient(0deg, var(--highlight) 0.5em, transparent 0.5em);
 }
 
+/* Component - tags */
 .c-tags {
   display: flex;
   margin-bottom: 0.5rem;
@@ -123,6 +140,7 @@ img {
   }
 }
 
+/* Component - Button */
 .c-button {
   display: inline-block;
   padding: 1rem 2rem;
@@ -143,6 +161,7 @@ img {
   background-color: #fff;
 }
 
+/* Component - topic */
 .c-topic {
   margin: 2rem auto;
   padding: 1.5rem 1.5rem;
@@ -153,22 +172,4 @@ img {
 .c-topic > ul {
   margin-top: 0 !important;
   margin-bottom: 0 !important;
-}
-
-.u-forPC {
-  display: none;
-}
-
-.u-forSP {
-  display: block;
-}
-
-@media (min-width: 1024px) {
-  .u-forPC {
-    display: block;
-  }
-
-  .u-forSP {
-    display: none;
-  }
 }
